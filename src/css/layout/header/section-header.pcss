@@ -1,0 +1,34 @@
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+| @namespace: header
+|
+*/
+
+/* Dynamically imports all sub-components */
+
+@import './_*.pcss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--zindex-header);
+  width: 100%;
+  background-color: var(--color-white);
+  border-bottom: 0 solid var(--color-black);
+  transition: transform var(--transition-speed), border var(--transition-speed);
+
+  &.header--scrolled-down {
+    transform: translateY(-100%) !important;
+  }
+}
+
+.header__inner {
+  max-width: 80vw;
+
+  @media (--sm) {
+    max-width: 60vw;
+  }
+}

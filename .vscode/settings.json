@@ -1,0 +1,52 @@
+{
+	"search.exclude": {
+		".git": true,
+		"assets": true
+	},
+	"editor.linkedEditing": true,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": true,
+	"editor.guides.highlightActiveIndentation": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
+	},
+	"editor.tabSize": 2,
+	"eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+	"stylelint.packageManager": "pnpm",
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
+  "stylelint.snippet": ["css", "less", "postcss", "scss", "pcss"],
+  "stylelint.validate": ["css", "less", "postcss", "scss", "pcss"],
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+	"/* Comment - files.exclude */": "Hidden to avoid clutter. Add back in if required.",
+	"files.exclude": {
+		"**/dist": true,
+		"**/.git": true,
+    "**/.github": true,
+		"**/node_modules": true,
+	},
+
+	"/* Comment */": "Formatters.",
+	"json.format.enable": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "LICENSE, README.md, .gitattributes, .nvmrc, .editorconfig, .gitignore, .npmrc, .cpanel.yml, package-lock.json, pnpm-lock.yaml, .eslintrc*, .prettierignore, .prettierrc*, .stylelintrc*, .theme-check.yml, postcss.config.js, babel.config.json, tsconfig.json, .browserslistrc, webpack.common.js, webpack.dev.js, webpack.prod.js"
+  },
+}

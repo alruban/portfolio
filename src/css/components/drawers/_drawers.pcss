@@ -1,0 +1,44 @@
+/*
+|--------------------------------------------------------------------------
+| Drawers
+|--------------------------------------------------------------------------
+| @namespace: drw-
+|
+*/
+.drw-Drawers {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--zindex-drawers);
+
+  pointer-events: none;
+}
+
+.drw-Drawers-active {
+  pointer-events: auto;
+}
+
+.drw-Drawers_Overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--zindex-drawers);
+
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity var(--transition-speed) ease-in-out, visibility var(--transition-speed) ease-in-out;
+
+  backface-visibility: hidden;
+  will-change: opacity;
+
+  .drw-Drawers-active & {
+    opacity: 1;
+    visibility: visible;
+  }
+}

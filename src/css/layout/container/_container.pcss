@@ -1,0 +1,48 @@
+/*
+|--------------------------------------------------------------------------
+| Container
+|--------------------------------------------------------------------------
+*/
+
+.container {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+
+  @media (--sm) {
+    padding-inline: var(--gutter-tablet);
+  }
+
+  @media (--lg) {
+    padding-inline: var(--gutter-desktop);
+  }
+}
+
+.container-image-fitscreen {
+
+  padding-inline: var(--gutter-mobile);
+
+  @media (--sm) {
+    padding-inline: var(--gutter-tablet);
+  }
+
+  @media (--lg) {
+    padding-inline: var(--gutter-desktop);
+  }
+
+  @media (orientation: landscape) {
+    height: calc(100vmin - var(--navigation-height));
+  }
+
+  @media (orientation: portrait) {
+    height: calc(100vmax - var(--navigation-height));
+  }
+
+  @media (--md) and (orientation: landscape) {
+    height: calc(100vmin - var(--navigation-height));
+  }
+
+  @media (--md) and (orientation: portrait) {
+    height: calc(100vmax - var(--navigation-height));
+  }
+}

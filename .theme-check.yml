@@ -1,0 +1,8 @@
+root: dist
+
+MatchingTranslations:
+  enabled: false
+
+# Disabled as schema is auto generated from JS
+SchemaJsonFormat:
+  enabled: false

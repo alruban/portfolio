@@ -1,0 +1,16 @@
+{
+  "global": {
+    "website": "https://www.samuelclarke.dev",
+    "title": "Sam Clarke | Front End Developer",
+    "subtitle": "Portfolio of Web Development",
+    "email": "alruban@protonmail.com"
+  },
+  "header": {
+    "title": "Header",
+    "children": {
+      "navigation": {
+        "title": "Navigation"
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+/*
+|--------------------------------------------------------------------------
+| Navigation
+|--------------------------------------------------------------------------
+| @namespace: drw-
+|
+*/
+.drw-Navigation {
+  width: 100%;
+  margin: 0;
+}
+
+.drw-Navigation_Items {
+  margin-block-start: -15px;
+  margin-block-end: -15px;
+
+  padding: 0 30px;
+
+  flex-direction: column;
+
+  display: flex;
+}
+
+.drw-Navigation_Item {
+  align-items: center;
+
+  display: inline-flex;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #c9c9c947;
+}
+
+.drw-Navigation_Item-title {
+  margin-block-start: 10px;
+
+  border-bottom: 0;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+}
+
+.drw-Navigation_Title {
+  display: block;
+  margin-block-end: 5px;
+
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+
+  color: var(--color-black);
+}
+
+.drw-Navigation_Link {
+  display: block;
+
+  font-size: .65rem;
+  letter-spacing: 0.5px;
+  line-height: 22px;
+
+  color: var(--color-black);
+
+  &.drw-Navigation_Link-active {
+    pointer-events: none;
+
+    opacity: 0.5;
+  }
+}
+
+.drw-Navigation_Link-button {
+  align-items: center;
+  justify-content: space-between;
+
+  display: flex;
+  width: 100%;
+}
+
+.drw-Navigation_Icon {
+  width: 10px;
+  height: 6px;
+
+  transition: transform var(--transition-speed);
+
+  .drw-Navigation_Button-active & {
+    transform: rotate(-180deg);
+  }
+}

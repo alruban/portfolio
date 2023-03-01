@@ -1,0 +1,96 @@
+/*
+|--------------------------------------------------------------------------
+| Drawer
+|--------------------------------------------------------------------------
+| @namespace: drw-
+|
+*/
+.drw-Drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: var(--zindex-drawer);
+
+  width: 90%;
+  height: 100%;
+  max-width: 480px;
+
+  overflow: scroll;
+
+  background-color: var(--color-white);
+  box-shadow: -10px 10px 15px rgb(0 0 0 / 20%);
+
+  -webkit-overflow-scrolling: touch;
+  backface-visibility: hidden;
+  transform: translateX(-150%);
+  transition: transform var(--transition-speed) ease-in-out;
+
+  will-change: transform;
+}
+
+.drw-Drawer-right {
+  right: 0;
+  left: auto;
+
+  transform: translateX(150%);
+}
+
+.drw-Drawer-active {
+  transform: none;
+}
+
+.drw-Drawer_Header {
+  margin: 0 30px;
+
+  align-items: center;
+  justify-content: space-between;
+
+  display: flex;
+  padding: 15px 0;
+
+  background-color: var(--color-white);
+  border-bottom: 1px solid #c9c9c947;
+}
+
+.drw-Drawer_Body {
+  padding: 25px 0;
+
+  background-color: var(--color-tan);
+}
+
+.drw-Drawer_Footer {
+  padding-block-start: 20px;
+
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.drw-Drawer_Title {
+  font-family: var(--font-secondary);
+  font-size: 20px;
+  font-weight: var(--weight-regular);
+  line-height: 28px;
+}
+
+.drw-Drawer_Logo {
+  height: 25px;
+
+  color: var(--color-black);
+
+  font-size: .75rem;
+  line-height: 2.4;
+}
+
+.drw-Drawer_Close {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+}
+
+.drw-Drawer_CloseIcon {
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

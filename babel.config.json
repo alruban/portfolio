@@ -1,0 +1,23 @@
+{
+  "assumptions": {
+    "setPublicClassFields": true
+  },
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "bugfixes": true,
+        "targets": "last 2 versions, not dead, not IE 11"
+      }
+    ]
+  ],
+
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-react-jsx"
+  ]
+}
