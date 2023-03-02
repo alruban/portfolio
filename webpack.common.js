@@ -8,8 +8,7 @@ const htmlPlugin = require("html-webpack-plugin");
 const core = {
   cache: {
     buildDependencies: {
-      config: [__filename],
-      browserList: [path.join(__dirname, ".browserslistrc")],
+      config: [__filename]
     },
     type: "filesystem",
     version: "1",

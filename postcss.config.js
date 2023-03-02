@@ -2,6 +2,7 @@ const banner = '! Do not modify this file. Make changes via the "src" directory,
 
 module.exports = {
   plugins: [
+    require("tailwindcss")("./tailwind.config.js"),
     "postcss-simple-vars",
     {
       "postcss-pxtorem": {
@@ -32,24 +33,12 @@ module.exports = {
           '--*'],
       },
     },
-    {
-      "postcss-easy-import": {
-        extensions: ".pcss",
-        prefix: "_",
-      },
-    },
     "postcss-nested",
     {
-      "postcss-custom-media": {
-        importFrom: 'src/css/core/breakpoints.pcss'
-      }
-    },
-    {
       "postcss-mixins": {
-        mixinsDir: 'src/css/mixins'
+        mixinsDir: "./src/css/postcss/mixins"
       }
     },
-    "postcss-round-subpixels",
     "postcss-easings",
     {
       "postcss-banner": {
@@ -57,7 +46,6 @@ module.exports = {
         inline: true
       }
     },
-    "postcss-sort-media-queries",
     {
       "cssnano": {
         preset: ['lite', {

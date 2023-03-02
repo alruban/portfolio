@@ -16,8 +16,8 @@ button,
 input,
 select {
   margin: 0;
-  background: none;
   border: 0;
+  background: none;
   cursor: pointer;
 }
 
@@ -26,27 +26,39 @@ button {
   text-transform: none;
 }
 
-[type=button],
-[type=reset],
-[type=submit],
+[type="button"],
+[type="reset"],
+[type="submit"],
 button {
-  -webkit-appearance: button;
+  appearance: button;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, span {
-  color: var(--color-black);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span {
+  color: theme("colors.black");
   font-family: var(--font-primary);
-  text-transform: uppercase;
   text-decoration: none;
+  text-transform: uppercase;
   word-break: break-word;
   user-select: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-size: 92px;
 }
 
-h3, h4, h5 {
+h3,
+h4,
+h5 {
   font-size: 42px;
 }
 
@@ -58,6 +70,7 @@ a {
   }
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
 }

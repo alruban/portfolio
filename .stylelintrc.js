@@ -288,7 +288,7 @@ const coreConfig = {
   "scss/no-global-function-names": null,
   "scss/dollar-variable-pattern": null,
   "selector-class-pattern": null,
-  "declaration-no-important": true,
+  "declaration-no-important": null,
   "scss/at-rule-no-unknown": null,
 };
 

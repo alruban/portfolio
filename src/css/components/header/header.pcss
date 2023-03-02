@@ -6,18 +6,14 @@
 |
 */
 
-/* Dynamically imports all sub-components */
-
-@import './_*.pcss';
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   z-index: var(--zindex-header);
   width: 100%;
-  background-color: var(--color-white);
-  border-bottom: 0 solid var(--color-black);
+  border-bottom: 0 solid theme("colors.black");
+  background-color: theme("colors.white");
   transition: transform var(--transition-speed), border var(--transition-speed);
 
   &.header--scrolled-down {

@@ -1,7 +1,8 @@
 {
 	"search.exclude": {
 		".git": true,
-		"assets": true
+		"assets": true,
+		"**/dist": true
 	},
 	"editor.linkedEditing": true,
 	"editor.bracketPairColorization.enabled": true,
@@ -27,15 +28,15 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
 
-	"/* Comment - files.exclude */": "Hidden to avoid clutter. Add back in if required.",
+	// Hidden to avoid clutter. Add back in if required.
 	"files.exclude": {
-		"**/dist": true,
+		"**/dist": false,
 		"**/.git": true,
     "**/.github": true,
 		"**/node_modules": true,
 	},
 
-	"/* Comment */": "Formatters.",
+	// Formatters
 	"json.format.enable": false,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[css]": {
@@ -49,4 +50,7 @@
   "explorer.fileNesting.patterns": {
     "package.json": "LICENSE, README.md, .gitattributes, .nvmrc, .editorconfig, .gitignore, .npmrc, .cpanel.yml, package-lock.json, pnpm-lock.yaml, .eslintrc*, .prettierignore, .prettierrc*, .stylelintrc*, .theme-check.yml, postcss.config.js, babel.config.json, tsconfig.json, .browserslistrc, webpack.common.js, webpack.dev.js, webpack.prod.js"
   },
+
+	// Tailwind
+  "tailwindCSS.rootFontSize": 10
 }

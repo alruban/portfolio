@@ -4,7 +4,7 @@ import { Translate } from '@rubancorp/react-translate-json/react';
 export default function Header() {
 
   function useScrollDirection() {
-    const [scrollDirection, setScrollDirection] = useState(null);
+    const [scrollDirection, setScrollDirection] = useState<string | null>(null);
 
     useEffect(() => {
       let lastScrollY = window.pageYOffset;
@@ -13,7 +13,7 @@ export default function Header() {
         const scrollY = window.pageYOffset;
         const direction = scrollY > lastScrollY ? "header--scrolled-down" : "header--scrolled-up";
 
-        if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
+        if (direction && direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
           setScrollDirection(direction);
         }
         lastScrollY = scrollY > 0 ? scrollY : 0;
@@ -38,12 +38,8 @@ export default function Header() {
       <div className="header__inner container">
         <div className="header__body">
           <div className="header-banner">
-            <a className="header-banner__title" href="/">
-              <Translate label="global.title" render={(res) => res}/>
-
-              <Translate label="global.email" render={(res) => (
-                  <span className="header-banner__subtitle">{res}</span>
-              )}/>
+            <a className="header-banner__title text-2xl" href="/">
+              <Translate label="global.title" render={(res: string) => res}/>
             </a>
           </div>
         </div>

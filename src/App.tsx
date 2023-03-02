@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Layout from './layouts/layout';
-import "./css/stylings.pcss";
+import "./css/main.pcss";
 
 const { PUBLIC_URL } = process.env;
 
@@ -12,7 +12,7 @@ const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
     <Suspense fallback={<Layout />}>
       <Routes>
-        <Route exact path="/" element={<Home />}/>
+        <Route path="/" element={<Home />}/>
       </Routes>
     </Suspense>
   </BrowserRouter>
