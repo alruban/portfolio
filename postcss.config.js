@@ -2,7 +2,9 @@ const banner = '! Do not modify this file. Make changes via the "src" directory,
 
 module.exports = {
   plugins: [
+    "postcss-import",
     require("tailwindcss")("./tailwind.config.js"),
+    require("tailwindcss/nesting"),
     "postcss-simple-vars",
     {
       "postcss-pxtorem": {
@@ -33,12 +35,13 @@ module.exports = {
           '--*'],
       },
     },
-    "postcss-nested",
     {
-      "postcss-mixins": {
-        mixinsDir: "./src/css/postcss/mixins"
-      }
+      "postcss-easy-import": {
+        extensions: ".pcss",
+        prefix: '_',
+      },
     },
+    "postcss-nested",
     "postcss-easings",
     {
       "postcss-banner": {

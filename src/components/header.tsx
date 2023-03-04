@@ -32,14 +32,20 @@ export default function Header() {
 
   return (
     <header
-      className={`header ${scrollDirection}`}
+      className={`${scrollDirection}`}
       data-module="header"
     >
-      <div className="header__inner container">
-        <div className="header__body">
-          <div className="header-banner">
-            <a className="header-banner__title text-2xl" href="/">
-              <Translate label="global.title" render={(res: string) => res}/>
+      <div className="container">
+        <div className="">
+          <div className="">
+            <a
+              className="text-2xl font-heading"
+              href="/"
+            >
+              <Translate
+                label="global.title"
+                render={(res: string) => res}
+              />
             </a>
           </div>
         </div>

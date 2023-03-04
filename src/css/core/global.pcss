@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background: var(--color-white);
+  background: theme("colors.white");
 }
 
 button,
@@ -43,7 +43,7 @@ p,
 a,
 span {
   color: theme("colors.black");
-  font-family: var(--font-primary);
+  font-family: theme("fontFamily.body");
   text-decoration: none;
   text-transform: uppercase;
   word-break: break-word;
@@ -63,7 +63,7 @@ h5 {
 }
 
 a {
-  transition: opacity var(--transition-speed) ease-in-out;
+  transition: opacity theme("transition.faster");
 
   &:hover {
     opacity: 0.75;

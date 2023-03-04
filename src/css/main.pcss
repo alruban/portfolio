@@ -1,13 +1,16 @@
-/*
-* Tailwind limitation means importing each file individually rather
+/* Tailwind limitation means importing each file individually rather
 * than using wildcards to reach multiple files and folders...
 */
+
+/* => Tailwind */
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "components/header/header.pcss";
+/* => File Imports */
+
+@import "components/header.pcss";
 
 @import "core/fonts.pcss";
 @import "core/global.pcss";
