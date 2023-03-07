@@ -58,11 +58,10 @@ const Layout = (props: { children: string | number | boolean | React.ReactElemen
       <meta name="msapplication-TileImage" content={ faviconMs310x150 }/>
       <meta name="msapplication-TileImage" content={ faviconMs310x }/>
     </Helmet>
-    <div id="wrapper">
-      <div id="main">
-        {props.children}
-      </div>
-    </div>
+
+    <main className='h-full'>
+      {props.children}
+    </main>
   </HelmetProvider>
 );
 

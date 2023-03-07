@@ -8,13 +8,72 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* => File Imports */
-
-@import "components/header.pcss";
-
 @import "core/fonts.pcss";
 @import "core/global.pcss";
 @import "core/utils.pcss";
 @import "core/variables.pcss";
 
 @import "layout/row.pcss";
+
+/* => Custom Tailwind Utilities */
+
+@layer utilities {
+  .orient-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .frame {
+    overflow: hidden;
+    width: calc(100dvw - (theme("spacing.6") * 2));
+    height: calc(100dvh - (theme("spacing.6") * 2));
+    margin-top: theme("spacing.6");
+    margin-left: theme("spacing.6");
+    border: 1px solid theme("colors.dos.50");
+  }
+
+  .transition-all-slow {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+    transition-property: all;
+  }
+
+  .transition-opacity-slow {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+    transition-property: opacity;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+/* => Site CSS */
+
+.project {
+  &__prompt {
+    top: 50%;
+    right: -10px;
+
+    @apply opacity-0 pointer-events-none;
+  }
+
+  &__preview {
+    transition: all 0.3s ease-in;
+  }
+
+  &:hover {
+    .project__prompt {
+      right: -15px;
+      opacity: 1;
+
+      @apply pointer-events-auto;
+    }
+  }
+}

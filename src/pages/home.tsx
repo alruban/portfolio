@@ -1,11 +1,15 @@
 import React from 'react';
 
-import Layout from '../layouts/layout';
-import Header from '../components/header';
+import Layout from '../layout/layout';
+import Sidebar from '../components/sidebar';
+import Book from '../components/book';
 
 const Index = () => (
   <Layout>
-    <Header/>
+    <div className='flex flex-col items-center h-full frame lg:flex-row'>
+      <Sidebar/>
+      <Book/>
+    </div>
   </Layout>
 );
 

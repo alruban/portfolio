@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Layout from './layouts/layout';
+import Layout from './layout/layout';
 import "./css/main.pcss";
 
 const { PUBLIC_URL } = process.env;
