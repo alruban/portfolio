@@ -13,11 +13,11 @@ const translationOptions = {
 };
 
 const StrictApp = () => (
-  <React.StrictMode>
+
     <TranslateProvider {...translationOptions}>
       <App />
     </TranslateProvider>
-  </React.StrictMode>
+
 );
 
 const root = createRoot(document.getElementById('root') as HTMLElement);

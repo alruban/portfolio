@@ -6,7 +6,7 @@ import Book from '../components/book';
 
 const Index = () => (
   <Layout>
-    <div className='flex flex-col items-center h-full frame lg:flex-row'>
+    <div className='relative flex flex-col items-center h-full frame lg:flex-row'>
       <Sidebar/>
       <Book/>
     </div>

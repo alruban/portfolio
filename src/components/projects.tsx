@@ -5,22 +5,36 @@ import profile from '../components/profile';
 import projects from '../data/portfolio';
 
 export default class Projects extends React.Component {
-  viewport: string;
+  isDesktop: boolean;
+  currentProject: boolean | number;
+  projectLoading: boolean;
 
   stateElements: {};
   portfolioElements: {};
 
-  fadeOutClasses: Array;
+  fadeOutClasses: Array<string>;
 
   constructor(props: {} | Readonly<{}>) {
     super(props);
 
     // Functional
-    this.viewport = '';
+    this.isDesktop = false;
+    this.currentProject = false;
+    this.projectLoading = false;
 
     // Elements
-    this.stateElements = {};
-    this.portfolioElements = {};
+    this.stateElements = {
+      navigation: "" as string | HTMLElement,
+      container: "" as string | HTMLElement,
+      title: "" as string | HTMLElement,
+      year: "" as string | HTMLElement,
+      reset: "" as string | HTMLElement,
+    };
+
+    this.portfolioElements = {
+      portfolioList: "" as string | HTMLElement,
+      portfolioItems: "" as string | HTMLElement,
+    };
 
     // Classes
     this.fadeOutClasses = ["opacity-0", "pointer-events-none"];
@@ -32,6 +46,7 @@ export default class Projects extends React.Component {
       container: document.querySelector("[data-state-container]"),
       title: document.querySelector("[data-state-title]"),
       year: document.querySelector("[data-state-year]"),
+      reset: document.querySelector("[data-state-reset]"),
     };
 
     this.portfolioElements = {
@@ -40,6 +55,63 @@ export default class Projects extends React.Component {
     }
 
     this.handleViewport();
+    this.handleReset();
+  }
+
+  handleReset() {
+    this.stateElements.reset.addEventListener('click', () => {
+      this.closeProject(this.currentProject)
+
+      this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
+        element.classList.remove("hidden");
+        element.style.height = 100 / projects.length + '%';
+      });
+    });
+
+    document.addEventListener("Project:Opened", (e) => {
+      if (!this.currentProject == false) {
+        this.portfolioElements.portfolioItems.forEach((element, index) => {
+          if (element != this.portfolioElements.portfolioItems[e.detail.index]) {
+            this.closeProject(index);
+            if (this.isDesktop) {
+              element.style.width = 100 / projects.length + '%';
+            } else {
+              element.style.height = 100 / projects.length + '%';
+            }
+          }
+        });
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!this.portfolioElements.portfolioList.contains(e.target)) {
+        this.closeProject(this.currentProject);
+
+        this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
+          if (this.isDesktop) {
+            element.style.width = 100 / projects.length + '%';
+          } else {
+            element.style.height = 100 / projects.length + '%';
+          }
+        });
+      }
+    });
+  }
+
+  hardReset(exception: number) {
+    this.portfolioElements.portfolioItems.forEach((element: HTMLElement, index: number) => {
+      if (exception && element != this.portfolioElements.portfolioItems[exception]) {
+        this.closeProject(index);
+      } else {
+        this.closeProject(index);
+      }
+
+      if (this.isDesktop) {
+        element.style.width = 100 / projects.length + '%';
+      } else {
+        element.style.height = 100 / projects.length + '%';
+      }
+    });
   }
 
   handleViewport() {
@@ -48,14 +120,14 @@ export default class Projects extends React.Component {
 
     const determineSize = (mediaStatus: MediaQueryList | MediaQueryListEvent) => {
       if (mediaStatus.matches) {
-        this.viewport = 'desktop';
-        this.portfolioElements.portfolioItems.forEach((element) => {
+        this.isDesktop = true;
+        this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
           element.style.width = `${100 / projects.length}%`;
           element.style.height = null;
         });
       } else {
-        this.viewport = 'mobile';
-        this.portfolioElements.portfolioItems.forEach((element) => {
+        this.isDesktop = false;
+        this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
           element.style.height = `${100 / projects.length}%`;
           element.style.width = null;
         });
@@ -111,7 +183,7 @@ export default class Projects extends React.Component {
       elementSize = 100 / projects.length + '%';
     }
 
-    if (this.viewport == 'desktop') {
+    if (this.isDesktop) {
       el.style.width = elementSize;
     } else {
       el.style.height = elementSize;
@@ -130,7 +202,9 @@ export default class Projects extends React.Component {
     const elPreview = el.firstElementChild;
     const elView = el.lastElementChild;
 
-    if (this.viewport == 'desktop') {
+    this.currentProject = index;
+
+    if (this.isDesktop) {
       el.style.width = "100%"
     } else {
       el.style.height = "100%"
@@ -139,9 +213,22 @@ export default class Projects extends React.Component {
     elPreview.classList.add(...this.fadeOutClasses);
     elView.classList.remove(...this.fadeOutClasses);
 
-    setTimeout(() => {
-      elView.classList.remove(...this.fadeOutClasses);
-    }, 150)
+    if (!this.isDesktop) {
+      this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
+        if (element != this.portfolioElements.portfolioItems[index]) {
+          element.classList.add("hidden");
+        }
+      });
+    }
+
+    document.documentElement.dispatchEvent(
+      new CustomEvent("Project:Opened", {
+        bubbles: true,
+        detail: {
+          index: index
+        }
+      }
+    ));
   }
 
   closeProject(index: number) {
@@ -149,9 +236,27 @@ export default class Projects extends React.Component {
     const elPreview = el.firstElementChild;
     const elView = el.lastElementChild;
 
+    this.currentProject = false;
+
+    elView.classList.add(...this.fadeOutClasses);
     elPreview.classList.remove(...this.fadeOutClasses);
-    elView.classList.add("hidden", ...this.fadeOutClasses);
-    setTimeout(() => el.lastElementChild.classList.remove("hidden"), 300)
+
+    if (!this.isDesktop) {
+      this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
+        if (element != this.portfolioElements.portfolioItems[index]) {
+          element.classList.remove("hidden");
+        }
+      });
+    }
+
+    document.documentElement.dispatchEvent(
+      new CustomEvent("Project:Closed", {
+        bubbles: true,
+        detail: {
+          index: index
+        }
+      }
+    ));
   }
 
   render() {
@@ -161,12 +266,18 @@ export default class Projects extends React.Component {
           <li
             className='relative flex items-center justify-center px-3 overflow-hidden transition-all border-t border-solid cursor-pointer project lg:border-t-0 lg:border-r lg:last:border-r-0 text-md border-dos-50'
             data-portfolio-item
-            onMouseEnter={(e) => this.previewProject(e, index)}
-            onMouseLeave={(e) => {
-              this.previewProject(e, index);
-              this.closeProject(index);
+            onMouseEnter={(e) => {
+              if (this.currentProject === false) {
+                this.previewProject(e, index);
+              }
             }}
-            onMouseDown={(e) => this.openProject(index)}
+            onMouseLeave={(e) => {
+              if (this.currentProject === false) {
+                this.previewProject(e, index);
+                this.closeProject(index);
+              }
+            }}
+            onMouseDown={() => {this.openProject(index)}}
             key={index}
           >
             {profile(project)}

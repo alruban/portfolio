@@ -39,9 +39,7 @@
   }
 
   .transition-opacity-slow {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
-    transition-property: opacity;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .scrollbar-hide {
@@ -58,10 +56,13 @@
 
 .project {
   &__prompt {
-    top: 50%;
-    right: -10px;
+    transform: rotate(90deg);
 
     @apply opacity-0 pointer-events-none;
+
+    @screen lg {
+      transform: rotate(0deg);
+    }
   }
 
   &__preview {
@@ -70,7 +71,6 @@
 
   &:hover {
     .project__prompt {
-      right: -15px;
       opacity: 1;
 
       @apply pointer-events-auto;

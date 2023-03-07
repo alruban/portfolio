@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Translate } from '@rubancorp/react-translate-json/react';
+import { Translate } from '@rubancorp/react-translate-json';
+
+import Close from '../svgs/svg-icon-close.svg';
 
 export default function Sidebar() {
-
   return (
     <aside className='relative flex-grow max-lg:w-full'>
+      <button
+        className='absolute w-8 h-8 cursor-pointer top-4 right-4 lg:hidden'
+        type='button'
+        data-state-reset
+      >
+        <Close/>
+      </button>
       <div
         className='absolute w-full h-full my-5 transition-opacity opacity-0 pointer-events-none'
         data-state-container
@@ -23,7 +31,7 @@ export default function Sidebar() {
         data-state-navigation
       >
         <a
-          className="block font-medium leading-none"
+          className="block font-medium leading-none w-fit"
           href="/"
         >
           <p className='text-3xl font-normal sm:text-4xl lg:text-6xl xl:text-8xl 2xl:text-10xl font-heading'>
