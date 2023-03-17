@@ -32,6 +32,7 @@ export default class Projects extends React.Component {
   stateElements: any;
   projectElements: any;
   profileElements: any;
+  globalElements: any;
 
   projects: any;
   fadeOutClasses: Array<string>;
@@ -48,6 +49,7 @@ export default class Projects extends React.Component {
     this.stateElements = {};
     this.projectElements = {};
     this.profileElements = {};
+    this.globalElements = {};
 
     // Classes
     this.fadeOutClasses = ["opacity-0", "pointer-events-none"];
@@ -78,6 +80,10 @@ export default class Projects extends React.Component {
       profileItems: document.querySelectorAll("[data-profile-item]"),
       profileResets: document.querySelectorAll("[data-profile-reset]"),
     })
+
+    Object.assign(this.globalElements, {
+      overlay: document.querySelector("[data-overlay]"),
+    });
 
     this.handleViewport();
     this.randomiseProjectPlacement();
@@ -145,6 +151,8 @@ export default class Projects extends React.Component {
 
     this.currentProject = index;
 
+    this.globalElements.overlay.classList.remove(...this.fadeOutClasses);
+
     customEvent("Project:Opened", {
       index: index
     });
@@ -201,6 +209,7 @@ export default class Projects extends React.Component {
     this.currentProject = -1;
 
     this.resetPreview();
+    this.globalElements.overlay.classList.add(...this.fadeOutClasses);
 
     customEvent("Project:Closed", {
       index: index

@@ -25,6 +25,7 @@ const core = {
     colors: {
       primary: "#597658",
       background: "var(--background)",
+      overlay: "rgba(27, 35, 27, 0.5)",
       border: {
         light: "#EEE"
       },

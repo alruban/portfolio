@@ -6,7 +6,7 @@ import Profiles from './profiles';
 export default function Portfolio() {
   return (
     <div
-      className='absolute w-full h-full'
+      className='absolute w-full h-full transition-opacity'
       data-page="portfolio"
     >
       <ul

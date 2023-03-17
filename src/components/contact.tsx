@@ -4,21 +4,22 @@ import { Translate } from '@rubancorp/react-translate-json/react';
 export default function Contact() {
   return (
     <div
-      className='absolute w-full h-full opacity-0 pointer-events-none'
+      className='absolute w-full h-full transition-opacity opacity-0 pointer-events-none'
       data-page="contact"
     >
+      <div className='absolute translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2'>
       <Translate
-        label="navigation.portfolio"
+        label="global.email"
         render={(res: string) => (
-          <button
-            className='leading-none text-md font-heading'
-            onClick={() => this.loadPage("portfolio")}
-            type='button'
+          <a
+            className='text-lg font-heading'
+            href={`mailto:${res}`}
           >
             {res}
-          </button>
+          </a>
         )}
       />
+      </div>
     </div>
   )
 }

@@ -51,13 +51,24 @@ export default class Navigation extends React.Component {
             <Translate
               label="navigation.portfolio"
               render={(res: string) => (
-                <button
-                  className='leading-none text-md font-heading'
-                  onClick={() => this.loadPage("portfolio")}
-                  type='button'
-                >
-                  {res}
-                </button>
+                <div className='relative'>
+                  <button
+                    className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
+                    onClick={() => this.loadPage("portfolio")}
+                    onMouseEnter={(e) => {
+                      e.target.classList.add("opacity-0");
+                      e.target.nextSibling.classList.remove("opacity-0")
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.classList.remove("opacity-0");
+                      e.target.nextSibling.classList.add("opacity-0")
+                    }}
+                    type='button'
+                  >
+                    {res}
+                  </button>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity opacity-0 pointer-events-none'></div>
+                </div>
               )}
             />
           </li>
@@ -68,13 +79,24 @@ export default class Navigation extends React.Component {
             <Translate
               label="navigation.contact"
               render={(res: string) => (
-                <button
-                  className='leading-none text-md font-heading'
-                  onClick={() => this.loadPage("contact")}
-                  type='button'
-                >
-                  {res}
-                </button>
+                <div className='relative'>
+                  <button
+                    className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
+                    onClick={() => this.loadPage("contact")}
+                    onMouseEnter={(e) => {
+                      e.target.classList.add("opacity-0");
+                      e.target.nextSibling.classList.remove("opacity-0")
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.classList.remove("opacity-0");
+                      e.target.nextSibling.classList.add("opacity-0")
+                    }}
+                    type='button'
+                  >
+                    {res}
+                  </button>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity opacity-0 pointer-events-none'></div>
+                </div>
               )}
             />
           </li>
@@ -85,13 +107,24 @@ export default class Navigation extends React.Component {
             <Translate
               label="navigation.about"
               render={(res: string) => (
-                <button
-                  className='leading-none text-md font-heading'
-                  onClick={() => this.loadPage("about")}
-                  type='button'
-                >
-                  {res}
-                </button>
+                <div className='relative'>
+                  <button
+                    className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
+                    onClick={() => this.loadPage("about")}
+                    onMouseEnter={(e) => {
+                      e.target.classList.add("opacity-0");
+                      e.target.nextSibling.classList.remove("opacity-0")
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.classList.remove("opacity-0");
+                      e.target.nextSibling.classList.add("opacity-0")
+                    }}
+                    type='button'
+                  >
+                    {res}
+                  </button>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity opacity-0 pointer-events-none'></div>
+                </div>
               )}
             />
           </li>

@@ -5,7 +5,8 @@
     "website": "https://www.samuelclarke.dev",
     "title": "Sam Clarke | Front End Developer",
     "subtitle": "Portfolio of Web Development",
-    "email": "alruban@protonmail.com"
+    "github": "https://github.com/alruban",
+    "email": "work@samuelclarke.dev"
   },
   "profile": {
     "titles": {
@@ -24,6 +25,7 @@
   },
   "about": {
     "email": "Email",
-    "github": "Github"
+    "github": "Github",
+    "info": "Born 1995, Suffolk. A Front End Developer, with experience in HTML5, CSS3, ES6, Typescript, React, Liquid JS, Shopify, PostCSS, Webpack 5, Tailwind, and NodeJS."
   }
 }
