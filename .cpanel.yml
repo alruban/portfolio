@@ -2,5 +2,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/bitwdhpj/public_html/
+    - export DEPLOYPATH=/home/samuelclarke/public_html/
     - /bin/cp -R dist/* $DEPLOYPATH

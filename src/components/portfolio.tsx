@@ -4,9 +4,11 @@ import Projects from './projects';
 import Profiles from './profiles';
 
 export default function Portfolio() {
-
   return (
-    <div className='max-lg:w-full flex flex-col h-full transition-all row-span-16 lg:row-span-1 lg:col-span-16 lg:flex-row lg:max-w-[65vw] w-full relative'>
+    <div
+      className='absolute w-full h-full'
+      data-page="portfolio"
+    >
       <ul
         className='absolute w-full h-full'
         data-project-list

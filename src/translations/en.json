@@ -21,5 +21,9 @@
     "portfolio": "Portfolio",
     "contact": "Contact",
     "about": "About"
+  },
+  "about": {
+    "email": "Email",
+    "github": "Github"
   }
 }

@@ -236,7 +236,6 @@ export default class Projects extends React.Component {
           return this;
         },
         placeElement() {
-          console.log(el)
           if (el) {
             el.style.top = (this.t + pad) + "px";
             el.style.left = (this.l + pad) + "px";
