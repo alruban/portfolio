@@ -9,6 +9,7 @@ declare module "*.xml";
 
 /* Dependencies */
 declare module "@rubancorp/react-translate-json";
+declare module "@rubancorp/react-translate-json/react";
 
 /* SVG imports */
 declare module "*.svg" {

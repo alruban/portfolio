@@ -1,39 +1,29 @@
 import React from 'react';
-import { Translate } from '@rubancorp/react-translate-json';
+import { Translate } from '@rubancorp/react-translate-json/react';
+import Codebases from './codebases';
 
-import ChevronRight from '../svgs/svg-icon-chevron-right.svg'
+import Projects from './projects';
+
+/* SVGs */
+import Patchworks from '../svgs/svg-project-patchworks.svg';
+import Freetrain from '../svgs/svg-project-freetrain.svg';
+import Climpsons from '../svgs/svg-project-climpsons.svg';
+import Hairgain from '../svgs/svg-project-hairgain.svg';
+import ALTMLK from '../svgs/svg-project-altmlk.svg';
+import Smiley from '../svgs/svg-project-smiley.svg';
+import Cedar from '../svgs/svg-project-cedar.svg';
+import Orb from '../svgs/svg-project-orb.svg';
+
+import Close from '../svgs/svg-icon-close.svg';
+
+/* Types */
 import { JSONSchema4 } from 'json-schema';
-import { Url } from 'url';
 
-export default function profile(data: JSONSchema4) {
+export default function Profile(data: JSONSchema4) {
   return (
     <>
       <div
-        className='relative grid w-full grid-cols-5 px-3 delay-500 select-none project__preview lg:px-0 lg:py-4 lg:orient-vertical lg:w-fit lg:h-full'
-        data-profile-preview
-      >
-        <p>
-          {data.category}
-        </p>
-
-        <div className='h-4 fill-dos-50 justify-self-center project__prompt'>
-          <ChevronRight />
-        </div>
-
-        <p className='text-center'>
-          {data.name}
-        </p>
-
-        <div className='h-4 fill-dos-50 justify-self-center project__prompt'>
-          <ChevronRight />
-        </div>
-
-        <p className='text-right'>
-          {data.year}
-        </p>
-      </div>
-      <div
-        className='absolute w-full h-full px-4 overflow-scroll delay-500 opacity-0 pointer-events-none transition-opacity-slow profile__view scrollbar-hide'
+        className='absolute w-full h-full px-4 pb-4 overflow-scroll bg-background scrollbar-hide'
         data-profile-view
       >
         <div className='flex justify-between pt-4 pb-1'>
@@ -41,86 +31,107 @@ export default function profile(data: JSONSchema4) {
             {data.name}
           </h6>
 
-          <h6 className='text-lg'>
-            {data.year}
-          </h6>
+          <button
+            className='absolute w-6 h-6 cursor-pointer top-4 right-4'
+            type='button'
+            data-profile-reset
+          >
+            <Close/>
+          </button>
         </div>
         <div className='py-3 border-solid border-y border-dos-50'>
-          <img
-            className='aspect-video'
-            src={data.images[0]}
-            loading='lazy'
-          />
+          <div className='w-20 mx-auto my-6 h-19'>
+            {
+              data.name == 'Patchworks' ? <Patchworks/> :
+              data.name == 'Climpson & Sons' ? <Climpsons/> :
+              data.name == 'Freetrain' ? <Freetrain/> :
+              data.name == 'Cedar & Hyde' ? <Cedar/> :
+              data.name == 'Hairgain' ? <Hairgain/> :
+              data.name == 'ALTMLK' ? <ALTMLK/> :
+              data.name == 'Smiley' ? <Smiley/> :
+              data.name == 'Orb' ? <Orb/> :
+              false
+            }
+          </div>
         </div>
         <div className='py-3 border-b border-solid border-dos-50'>
           <div className='grid grid-cols-2'>
             <Translate
               label="profile.titles.category"
               render={(res: string) => (
-                <p className='text-3xs font-heading'>
+                <p className='text-md font-heading'>
                   {res}
                 </p>
               )}
             />
-            <p className='text-right text-3xs font-heading'>
+            <p className='text-right text-md font-heading'>
               {data.category}
-            </p>
-            <Translate
-              label="profile.titles.codebase"
-              render={(res: string) => (
-                <p className='text-3xs font-heading'>
-                  {res}
-                </p>
-              )}
-            />
-            <p className='text-right text-3xs font-heading'>
-              {data.codebase}
             </p>
             <Translate
               label="profile.titles.team"
               render={(res: string) => (
-                <p className='text-3xs font-heading'>
+                <p className='text-md font-heading'>
                   {res}
                 </p>
               )}
             />
-            <p className='text-right text-3xs font-heading'>
+            <p className='text-right text-md font-heading'>
               {data.team}
+            </p>
+            <Translate
+              label="profile.titles.role"
+              render={(res: string) => (
+                <p className='text-md font-heading'>
+                  {res}
+                </p>
+              )}
+            />
+            <p className='text-right text-md font-heading'>
+              {data.role}
+            </p>
+            <Translate
+              label="profile.titles.year"
+              render={(res: string) => (
+                <p className='text-md font-heading'>
+                  {res}
+                </p>
+              )}
+            />
+            <p className='text-right text-md font-heading'>
+              {data.year}
             </p>
           </div>
         </div>
-        <div className='py-3 border-b border-solid border-dos-50'>
-          <p className='text-3xs font-heading'>
+        <div className='pt-3'>
+          <p className='text-md font-heading'>
             {data.description}
           </p>
+        </div>
+        <div className='flex justify-between pt-6 pb-3 border-b border-solid border-dos-50'>
           <Translate
             label="profile.website"
             render={(res: string) => (
               <a
-                className='text-3xs font-heading'
+                className='text-sm underline hover:no-underline underline-offset-4 font-heading'
                 href={data.link}
               >
                 {res}
               </a>
             )}
           />
+
+          <div>
+            {Codebases(data)}
+            <Translate
+              label="profile.titles.codebase"
+              render={(res: string) => (
+                <span className='util__screen-reader-only'>
+                  {res}
+                </span>
+              )}
+            />
+          </div>
         </div>
-        <ul className='py-4'>
-          {data.images.map((image: string, index: number) => {
-            return (
-              <li
-                className='pb-4 last:pb-0'
-                key={`image-${index}`}
-              >
-                <img
-                  className='aspect-video'
-                  src={image}
-                  loading='lazy'
-                />
-              </li>
-            )
-          })}
-        </ul>
       </div>
     </>
   )

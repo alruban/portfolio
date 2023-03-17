@@ -11,7 +11,9 @@
     "titles": {
       "category": "Category",
       "codebase": "Codebase",
-      "team": "Team"
+      "team": "Team",
+      "role": "Role",
+      "year": "Year"
     },
     "website": "View Website"
   },

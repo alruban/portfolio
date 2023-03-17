@@ -7,12 +7,17 @@
     "subtitle": "Portfolio of Web Development",
     "email": "alruban@protonmail.com"
   },
-  "header": {
-    "title": "Header",
-    "children": {
-      "navigation": {
-        "title": "Navigation"
-      }
-    }
+  "profile": {
+    "titles": {
+      "category": "Category",
+      "codebase": "Codebase",
+      "team": "Team"
+    },
+    "website": "View Website"
+  },
+  "navigation": {
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "about": "About"
   }
 }

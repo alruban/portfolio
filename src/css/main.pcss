@@ -39,7 +39,7 @@
   }
 
   .transition-opacity-slow {
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s cubic-bezier(0.46, 0.28, 0.55, 0.86);
   }
 
   .scrollbar-hide {
@@ -50,30 +50,41 @@
       display: none;
     }
   }
+
+  .drop-shadow {
+    &:hover {
+      filter: drop-shadow(2px 2px 6px #59765850);
+    }
+  }
+
+  .floatsing {
+    margin-top: 5px;
+    margin-left: 30px;
+    animation-name: floating;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
 }
 
-/* => Site CSS */
-
-.project {
-  &__prompt {
-    transform: rotate(90deg);
-
-    @apply opacity-0 pointer-events-none;
-
-    @screen lg {
-      transform: rotate(0deg);
-    }
+@keyframes floating {
+  0% {
+    transform: translate(0, 0);
   }
 
-  &__preview {
-    transition: all 0.3s ease-in;
+  25% {
+    transform: translate(20px, 10px);
   }
 
-  &:hover {
-    .project__prompt {
-      opacity: 1;
+  50% {
+    transform: translate(30px, 20px);
+  }
 
-      @apply pointer-events-auto;
-    }
+  75% {
+    transform: translate(20px, 30px);
+  }
+
+  100% {
+    transform: translate(0, -0);
   }
 }

@@ -1,17 +1,39 @@
 import React, { MouseEvent } from 'react';
 import { JSONSchema4 } from 'json-schema';
 
-import profile from '../components/profile';
+/* SVGs */
+import Patchworks from '../svgs/svg-project-patchworks.svg';
+import Freetrain from '../svgs/svg-project-freetrain.svg';
+import Climpsons from '../svgs/svg-project-climpsons.svg';
+import Hairgain from '../svgs/svg-project-hairgain.svg';
+import ALTMLK from '../svgs/svg-project-altmlk.svg';
+import Smiley from '../svgs/svg-project-smiley.svg';
+import Cedar from '../svgs/svg-project-cedar.svg';
+import Orb from '../svgs/svg-project-orb.svg';
+
+import customEvent from '../utils/customEvent';
+
 import projects from '../data/portfolio';
+
+type project = {
+  name?: string;
+  link?: string;
+  category?: string;
+  team?: string;
+  role?: string;
+  description?: string;
+}
 
 export default class Projects extends React.Component {
   isDesktop: boolean;
-  currentProject: boolean | number;
+  currentProject: number;
   projectLoading: boolean;
 
-  stateElements: {};
-  portfolioElements: {};
+  stateElements: any;
+  projectElements: any;
+  profileElements: any;
 
+  projects: any;
   fadeOutClasses: Array<string>;
 
   constructor(props: {} | Readonly<{}>) {
@@ -19,100 +41,61 @@ export default class Projects extends React.Component {
 
     // Functional
     this.isDesktop = false;
-    this.currentProject = false;
+    this.currentProject = -1;
     this.projectLoading = false;
 
     // Elements
-    this.stateElements = {
-      navigation: "" as string | HTMLElement,
-      container: "" as string | HTMLElement,
-      title: "" as string | HTMLElement,
-      year: "" as string | HTMLElement,
-      reset: "" as string | HTMLElement,
-    };
-
-    this.portfolioElements = {
-      portfolioList: "" as string | HTMLElement,
-      portfolioItems: "" as string | HTMLElement,
-    };
+    this.stateElements = {};
+    this.projectElements = {};
+    this.profileElements = {};
 
     // Classes
     this.fadeOutClasses = ["opacity-0", "pointer-events-none"];
   }
 
+  /**
+   * Assigns component-relevant elements to their respective objects
+   * once the Projects component has been loaded, then initialises methods
+   * that are essential to applying the appropriate style to the component,
+   * and various events used for reseting the component to its original state.
+   */
+
   componentDidMount(): void {
-    this.stateElements = {
+    Object.assign(this.stateElements, {
       navigation: document.querySelector("[data-state-navigation]"),
       container: document.querySelector("[data-state-container]"),
       title: document.querySelector("[data-state-title]"),
-      year: document.querySelector("[data-state-year]"),
-      reset: document.querySelector("[data-state-reset]"),
-    };
+      category: document.querySelector("[data-state-category]"),
+    })
 
-    this.portfolioElements = {
-      portfolioList: document.querySelector("[data-portfolio-list]"),
-      portfolioItems: document.querySelectorAll("[data-portfolio-item]"),
-    }
+    Object.assign(this.projectElements, {
+      projectList: document.querySelector("[data-project-list]"),
+      projectItems: document.querySelectorAll("[data-project-item]"),
+    })
+
+    Object.assign(this.profileElements, {
+      profileList: document.querySelector("[data-profile-list]"),
+      profileItems: document.querySelectorAll("[data-profile-item]"),
+      profileResets: document.querySelectorAll("[data-profile-reset]"),
+    })
 
     this.handleViewport();
-    this.handleReset();
-  }
+    this.randomiseProjectPlacement();
+    this.closeEvents();
 
-  handleReset() {
-    this.stateElements.reset.addEventListener('click', () => {
-      this.closeProject(this.currentProject)
-
-      this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
-        element.classList.remove("hidden");
-        element.style.height = 100 / projects.length + '%';
-      });
-    });
-
-    document.addEventListener("Project:Opened", (e) => {
-      if (!this.currentProject == false) {
-        this.portfolioElements.portfolioItems.forEach((element, index) => {
-          if (element != this.portfolioElements.portfolioItems[e.detail.index]) {
-            this.closeProject(index);
-            if (this.isDesktop) {
-              element.style.width = 100 / projects.length + '%';
-            } else {
-              element.style.height = 100 / projects.length + '%';
-            }
-          }
-        });
-      }
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!this.portfolioElements.portfolioList.contains(e.target)) {
-        this.closeProject(this.currentProject);
-
-        this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
-          if (this.isDesktop) {
-            element.style.width = 100 / projects.length + '%';
-          } else {
-            element.style.height = 100 / projects.length + '%';
-          }
-        });
-      }
+    window.addEventListener("resize", () => {
+      this.randomiseProjectPlacement();
     });
   }
 
-  hardReset(exception: number) {
-    this.portfolioElements.portfolioItems.forEach((element: HTMLElement, index: number) => {
-      if (exception && element != this.portfolioElements.portfolioItems[exception]) {
-        this.closeProject(index);
-      } else {
-        this.closeProject(index);
-      }
-
-      if (this.isDesktop) {
-        element.style.width = 100 / projects.length + '%';
-      } else {
-        element.style.height = 100 / projects.length + '%';
-      }
-    });
-  }
+  /**
+   * Determines the user's viewport, the sizing of each project list item is determined
+   * using JS, the values used in that process change depending on the users viewport.
+   *
+   * We also set a globally accessible property to store the current viewport value,
+   * so that alternate processes and stylings can be applied inside of each method,
+   * depending on the current viewport.
+   */
 
   handleViewport() {
     const mediaQuery = "(min-width: 1024px)";
@@ -121,16 +104,8 @@ export default class Projects extends React.Component {
     const determineSize = (mediaStatus: MediaQueryList | MediaQueryListEvent) => {
       if (mediaStatus.matches) {
         this.isDesktop = true;
-        this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
-          element.style.width = `${100 / projects.length}%`;
-          element.style.height = null;
-        });
       } else {
         this.isDesktop = false;
-        this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
-          element.style.height = `${100 / projects.length}%`;
-          element.style.width = null;
-        });
       }
     }
 
@@ -139,124 +114,158 @@ export default class Projects extends React.Component {
   }
 
   /**
-   * onMouseEnter, the currently selected [data-portfolio-item]'s
-   * information is populated on-top of the navigation panel on the
-   * right of the screen. onMouseLeave, the navigation panel returns
-   * to its original form.
-   *
-   * @param mouseEvent;
-   * @param project;
+   * These events are used to reset the component to its starting state/styling.
+   * Each event has a small write-up about what it's achieving...
    */
 
-  handleNavigationPreview(mouseEvent: MouseEvent, project: string) {
-    if (mouseEvent.type == 'mouseenter') {
-      this.stateElements.navigation?.classList.add(...this.fadeOutClasses);
-      this.stateElements.container?.classList.remove(...this.fadeOutClasses);
-
-      this.stateElements.title.textContent = project.name;
-      this.stateElements.year.textContent = project.year;
-    } else if (mouseEvent.type == 'mouseleave') {
-      this.stateElements.navigation?.classList.remove(...this.fadeOutClasses);
-      this.stateElements.container?.classList.add(...this.fadeOutClasses);
-
-      this.stateElements.title.textContent = "";
-      this.stateElements.year.textContent = "";
-    }
+  closeEvents() {
+    this.profileElements.profileResets.forEach((reset: HTMLElement, index: number) => {
+      reset.addEventListener("click", () => {
+        this.closeProject(index)
+      });
+    });
   }
 
   /**
+   * When a onMouseDown event is fired on any project element,
+   * the project element expands, and reveals a document with
+   * more information about the selected project.
    *
-   * @param MouseEvent
-   * @param index
-   */
-
-  previewProject(mouseEvent: MouseEvent, index: number) {
-    const el = this.portfolioElements.portfolioItems[index];
-    const expand = mouseEvent.type === 'mouseenter';
-    const contract = mouseEvent.type === 'mouseleave';
-
-    let elementSize;
-
-    if (expand) {
-      elementSize = (100 / projects.length) * 2 + '%';
-    } else if (contract) {
-      elementSize = 100 / projects.length + '%';
-    }
-
-    if (this.isDesktop) {
-      el.style.width = elementSize;
-    } else {
-      el.style.height = elementSize;
-    }
-
-    this.handleNavigationPreview(mouseEvent, projects[index]);
-  }
-
-  /**
+   * Any other currently open projects are closed, but
+   * this functionality occurs external to this method.
    *
    * @param element
    */
 
   openProject(index: number) {
-    const el = this.portfolioElements.portfolioItems[index];
-    const elPreview = el.firstElementChild;
-    const elView = el.lastElementChild;
+    this.profileElements.profileList.classList.remove("pointer-events-none");
+
+    const el = this.profileElements.profileItems[index];
+    el.classList.remove(...this.fadeOutClasses);
 
     this.currentProject = index;
 
-    if (this.isDesktop) {
-      el.style.width = "100%"
-    } else {
-      el.style.height = "100%"
-    }
-
-    elPreview.classList.add(...this.fadeOutClasses);
-    elView.classList.remove(...this.fadeOutClasses);
-
-    if (!this.isDesktop) {
-      this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
-        if (element != this.portfolioElements.portfolioItems[index]) {
-          element.classList.add("hidden");
-        }
-      });
-    }
-
-    document.documentElement.dispatchEvent(
-      new CustomEvent("Project:Opened", {
-        bubbles: true,
-        detail: {
-          index: index
-        }
-      }
-    ));
+    customEvent("Project:Opened", {
+      index: index
+    });
   }
 
+  /**
+   * onMouseEnter, the currently selected [data-project-item]'s
+   * information is populated on-top of the navigation panel on the
+   * left of (or at the top of on mobile) the screen. onMouseLeave,
+   * the navigation panel returns to its original form.
+   *
+   * @param mouseEvent;
+   * @param index;
+   */
+
+  resetPreview() {
+    this.stateElements.navigation?.classList.remove(...this.fadeOutClasses);
+    this.stateElements.container?.classList.add(...this.fadeOutClasses);
+
+    this.stateElements.title.textContent = "";
+    this.stateElements.category.textContent = "";
+  }
+
+  previewProject(mouseEvent: MouseEvent, index: number) {
+    if (this.projectElements.projectItems) {
+      if (this.currentProject !== -1) return;
+
+      if (mouseEvent.type == 'mouseenter') {
+        this.stateElements.navigation?.classList.add(...this.fadeOutClasses);
+        this.stateElements.container?.classList.remove(...this.fadeOutClasses);
+
+        this.stateElements.title.textContent = projects[index].name;
+        this.stateElements.category.textContent = projects[index].category;
+      } else if (mouseEvent.type == 'mouseleave') {
+        this.resetPreview();
+      }
+    }
+  }
+
+   /**
+   * When a onMouseDown event is fired on any project element,
+   * the project element closes, and hides a document with
+   * more information about the selected project.
+   *
+   * @param index
+   */
+
   closeProject(index: number) {
-    const el = this.portfolioElements.portfolioItems[index];
-    const elPreview = el.firstElementChild;
-    const elView = el.lastElementChild;
+    this.profileElements.profileList.classList.add("pointer-events-none");
 
-    this.currentProject = false;
+    const el = this.profileElements.profileItems[index];
+    el.classList.add(...this.fadeOutClasses);
 
-    elView.classList.add(...this.fadeOutClasses);
-    elPreview.classList.remove(...this.fadeOutClasses);
+    this.currentProject = -1;
 
-    if (!this.isDesktop) {
-      this.portfolioElements.portfolioItems.forEach((element: HTMLElement) => {
-        if (element != this.portfolioElements.portfolioItems[index]) {
-          element.classList.remove("hidden");
+    this.resetPreview();
+
+    customEvent("Project:Closed", {
+      index: index
+    });
+  }
+
+  randomiseProjectPlacement() {
+    const Bounds = (el, pad = 20) => {
+      const box = el?.getBoundingClientRect() ?? {
+        left: 0, top: 0,
+        right: this.projectElements.projectList.offsetWidth - 100, bottom: this.projectElements.projectList.offsetHeight - 100,
+        width: this.projectElements.projectList.offsetWidth - 100, height: this.projectElements.projectList.offsetHeight - 100
+      };
+
+      return {
+        l: box.left - pad,
+        t: box.top - pad,
+        r: box.right + pad,
+        b: box.bottom + pad,
+        w: box.width + pad * 2,
+        h: box.height + pad * 2,
+        overlaps(bounds) {
+          return !(
+            this.l > bounds.r ||
+            this.r < bounds.l ||
+            this.t > bounds.b ||
+            this.b < bounds.t
+          );
+        },
+        moveTo(x, y) {
+          this.r = (this.l = x) + this.w;
+          this.b = (this.t = y) + this.h;
+          return this;
+        },
+        placeElement() {
+          console.log(el)
+          if (el) {
+            el.style.top = (this.t + pad) + "px";
+            el.style.left = (this.l + pad) + "px";
+          }
+          return this;
         }
-      });
+      };
     }
 
-    document.documentElement.dispatchEvent(
-      new CustomEvent("Project:Closed", {
-        bubbles: true,
-        detail: {
-          index: index
-        }
+    const TRIES_PER_BOX = 50;
+    const randUint = range => Math.random() * range | 0;
+    const placing  = [...this.projectElements.projectItems].map(el => Bounds(el, 5));
+    const fitted = [];
+    const areaToFit = Bounds();
+
+    let maxTries = TRIES_PER_BOX * placing.length;
+
+    while (placing.length && maxTries > 0) {
+      let i = 0;
+      while (i < placing.length) {
+        const box = placing[i];
+        box.moveTo(randUint(areaToFit.w - box.w), randUint(areaToFit.h - box.h));
+
+        if (fitted.every(placed => !placed.overlaps(box))) {
+          fitted.push(placing.splice(i--, 1)[0].placeElement());
+        } else { maxTries-- }
+        i++;
       }
-    ));
+    }
   }
 
   render() {
@@ -264,23 +273,39 @@ export default class Projects extends React.Component {
       projects.map((project: JSONSchema4, index: number) => {
         return (
           <li
-            className='relative flex items-center justify-center px-3 overflow-hidden transition-all border-t border-solid cursor-pointer project lg:border-t-0 lg:border-r lg:last:border-r-0 text-md border-dos-50'
-            data-portfolio-item
+            className='absolute transition-all cursor-pointer h-[10%] w-[20%] lg:w-[14%] floating drop-shadow'
+            data-project-item
+            data-float='0.5'
+
             onMouseEnter={(e) => {
-              if (this.currentProject === false) {
+              if (this.currentProject === -1) {
                 this.previewProject(e, index);
               }
             }}
+
             onMouseLeave={(e) => {
-              if (this.currentProject === false) {
+              if (this.currentProject === -1) {
                 this.previewProject(e, index);
-                this.closeProject(index);
               }
             }}
-            onMouseDown={() => {this.openProject(index)}}
+            onMouseDown={(e) => {
+              if (this.currentProject === -1) {
+                this.openProject(index);
+              }
+            }}
             key={index}
           >
-            {profile(project)}
+            {
+              project.name == 'Patchworks' ? <Patchworks/> :
+              project.name == 'Climpson & Sons' ? <Climpsons/> :
+              project.name == 'Freetrain' ? <Freetrain/> :
+              project.name == 'Cedar & Hyde' ? <Cedar/> :
+              project.name == 'Hairgain' ? <Hairgain/> :
+              project.name == 'ALTMLK' ? <ALTMLK/> :
+              project.name == 'Smiley' ? <Smiley/> :
+              project.name == 'Orb' ? <Orb/> :
+              false
+            }
           </li>
         )
       })

@@ -24,7 +24,7 @@ const core = {
     },
     colors: {
       primary: "#597658",
-      background: "#E3E3E3",
+      background: "var(--background)",
       border: {
         light: "#EEE"
       },
@@ -220,6 +220,9 @@ const core = {
       2: "0.02em",
     },
     extend: {
+      aspectRatio: {
+        'screen': '21 / 10',
+      },
       gridTemplateRows: {
         '13': 'repeat(13, minmax(0, 1fr))',
         '14': 'repeat(14, minmax(0, 1fr))',
