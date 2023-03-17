@@ -11,7 +11,9 @@
     "titles": {
       "category": "Category",
       "codebase": "Codebase",
-      "team": "Team"
+      "team": "Team",
+      "role": "Role",
+      "year": "Year"
     },
     "website": "View Website"
   },
@@ -19,5 +21,9 @@
     "portfolio": "Portfolio",
     "contact": "Contact",
     "about": "About"
+  },
+  "about": {
+    "email": "Email",
+    "github": "Github"
   }
 }
