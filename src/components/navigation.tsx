@@ -56,12 +56,18 @@ export default class Navigation extends React.Component {
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
                     onClick={() => this.loadPage("portfolio")}
                     onMouseEnter={(e) => {
-                      e.target.classList.add("opacity-0");
-                      e.target.nextSibling.classList.remove("opacity-0")
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      target.classList.add("opacity-0");
+                      line.classList.remove("opacity-0");
                     }}
                     onMouseLeave={(e) => {
-                      e.target.classList.remove("opacity-0");
-                      e.target.nextSibling.classList.add("opacity-0")
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      target.classList.remove("opacity-0");
+                      line.classList.add("opacity-0");
                     }}
                     type='button'
                   >
@@ -84,12 +90,18 @@ export default class Navigation extends React.Component {
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
                     onClick={() => this.loadPage("contact")}
                     onMouseEnter={(e) => {
-                      e.target.classList.add("opacity-0");
-                      e.target.nextSibling.classList.remove("opacity-0")
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      target.classList.add("opacity-0");
+                      line.classList.remove("opacity-0")
                     }}
                     onMouseLeave={(e) => {
-                      e.target.classList.remove("opacity-0");
-                      e.target.nextSibling.classList.add("opacity-0")
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      target.classList.remove("opacity-0");
+                      line.classList.add("opacity-0")
                     }}
                     type='button'
                   >
@@ -112,12 +124,18 @@ export default class Navigation extends React.Component {
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
                     onClick={() => this.loadPage("about")}
                     onMouseEnter={(e) => {
-                      e.target.classList.add("opacity-0");
-                      e.target.nextSibling.classList.remove("opacity-0")
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      target.classList.add("opacity-0");
+                      line.classList.remove("opacity-0")
                     }}
                     onMouseLeave={(e) => {
-                      e.target.classList.remove("opacity-0");
-                      e.target.nextSibling.classList.add("opacity-0")
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      target.classList.remove("opacity-0");
+                      line.classList.add("opacity-0")
                     }}
                     type='button'
                   >

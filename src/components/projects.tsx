@@ -92,6 +92,11 @@ export default class Projects extends React.Component {
     window.addEventListener("resize", () => {
       this.randomiseProjectPlacement();
     });
+
+    this.globalElements.overlay.addEventListener("click", () => {
+      this.closeProject(this.currentProject);
+      this.resetPreview(this.currentProject);
+    });
   }
 
   /**
@@ -168,12 +173,18 @@ export default class Projects extends React.Component {
    * @param index;
    */
 
-  resetPreview() {
+  resetPreview(index: number) {
     this.stateElements.navigation?.classList.remove(...this.fadeOutClasses);
     this.stateElements.container?.classList.add(...this.fadeOutClasses);
 
     this.stateElements.title.textContent = "";
     this.stateElements.category.textContent = "";
+
+    this.projectElements.projectItems.forEach((item: HTMLElement) => {
+      if (item != this.projectElements.projectItems[index]) {
+        item.classList.remove("opacity-50");
+      }
+    });
   }
 
   previewProject(mouseEvent: MouseEvent, index: number) {
@@ -186,8 +197,14 @@ export default class Projects extends React.Component {
 
         this.stateElements.title.textContent = projects[index].name;
         this.stateElements.category.textContent = projects[index].category;
+
+        this.projectElements.projectItems.forEach((item: HTMLElement) => {
+          if (item != this.projectElements.projectItems[index]) {
+            item.classList.add("opacity-50");
+          }
+        });
       } else if (mouseEvent.type == 'mouseleave') {
-        this.resetPreview();
+        this.resetPreview(index);
       }
     }
   }
@@ -208,7 +225,7 @@ export default class Projects extends React.Component {
 
     this.currentProject = -1;
 
-    this.resetPreview();
+    this.resetPreview(index);
     this.globalElements.overlay.classList.add(...this.fadeOutClasses);
 
     customEvent("Project:Closed", {
@@ -217,7 +234,7 @@ export default class Projects extends React.Component {
   }
 
   randomiseProjectPlacement() {
-    const Bounds = (el, pad = 20) => {
+    const Bounds = (el?: HTMLElement | null, padding = 20) => {
       const box = el?.getBoundingClientRect() ?? {
         left: 0, top: 0,
         right: this.projectElements.projectList.offsetWidth - 100, bottom: this.projectElements.projectList.offsetHeight - 100,
@@ -225,13 +242,13 @@ export default class Projects extends React.Component {
       };
 
       return {
-        l: box.left - pad,
-        t: box.top - pad,
-        r: box.right + pad,
-        b: box.bottom + pad,
-        w: box.width + pad * 2,
-        h: box.height + pad * 2,
-        overlaps(bounds) {
+        l: box.left - padding,
+        t: box.top - padding,
+        r: box.right + padding,
+        b: box.bottom + padding,
+        w: box.width + padding * 2,
+        h: box.height + padding * 2,
+        overlaps(bounds: { r: number; l: number; b: number; t: number; }) {
           return !(
             this.l > bounds.r ||
             this.r < bounds.l ||
@@ -239,15 +256,15 @@ export default class Projects extends React.Component {
             this.b < bounds.t
           );
         },
-        moveTo(x, y) {
+        moveTo(x: number, y: number) {
           this.r = (this.l = x) + this.w;
           this.b = (this.t = y) + this.h;
           return this;
         },
         placeElement() {
           if (el) {
-            el.style.top = (this.t + pad) + "px";
-            el.style.left = (this.l + pad) + "px";
+            el.style.top = (this.t + padding) + "px";
+            el.style.left = (this.l + padding) + "px";
           }
           return this;
         }
@@ -255,9 +272,9 @@ export default class Projects extends React.Component {
     }
 
     const TRIES_PER_BOX = 50;
-    const randUint = range => Math.random() * range | 0;
+    const randUint = (range: number) => Math.random() * range | 0;
     const placing  = [...this.projectElements.projectItems].map(el => Bounds(el, 5));
-    const fitted = [];
+    const fitted: { l: number; t: number; r: number; b: number; w: number; h: number; overlaps(bounds: { r: number; l: number; b: number; t: number; }): boolean; moveTo(x: number, y: number): any; placeElement(): any; }[] = [];
     const areaToFit = Bounds();
 
     let maxTries = TRIES_PER_BOX * placing.length;
@@ -281,7 +298,7 @@ export default class Projects extends React.Component {
       projects.map((project: JSONSchema4, index: number) => {
         return (
           <li
-            className='absolute transition-all cursor-pointer h-[10%] w-[20%] lg:w-[14%] floating drop-shadow'
+            className={`absolute floating-${index} transition-all cursor-pointer h-[10%] w-[20%] lg:w-[14%]`}
             data-project-item
             data-float='0.5'
 

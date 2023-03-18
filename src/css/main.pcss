@@ -50,21 +50,13 @@
       display: none;
     }
   }
+}
 
-  .drop-shadow {
-    &:hover {
-      filter: drop-shadow(2px 2px 6px #59765850);
-    }
-  }
-
-  .floatsing {
-    margin-top: 5px;
-    margin-left: 30px;
-    animation-name: floating;
-    animation-duration: 15s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
+.floating-1 {
+  animation-name: floating;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 @keyframes floating {
@@ -73,18 +65,18 @@
   }
 
   25% {
-    transform: translate(20px, 10px);
+    transform: translate(2.5px, 5px);
   }
 
   50% {
-    transform: translate(30px, 20px);
+    transform: translate(5px, 10px);
   }
 
   75% {
-    transform: translate(20px, 30px);
+    transform: translate(7.5px, 15px);
   }
 
   100% {
-    transform: translate(0, -0);
+    transform: translate(10px, 20px);
   }
 }
