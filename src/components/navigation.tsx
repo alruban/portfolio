@@ -2,8 +2,22 @@ import React from 'react';
 import { Translate } from '@rubancorp/react-translate-json/react';
 
 export default class Navigation extends React.Component {
+  state: {
+    current: string
+  }
+
+  navigationItems!: NodeListOf<Element>;
+
   constructor(props: {} | Readonly<{}>) {
     super(props);
+
+    this.state = {
+      current: "portfolio"
+    };
+  }
+
+  componentDidMount(): void {
+    this.navigationItems = document.querySelectorAll("[data-navigation-item]");
   }
 
   loadPage(id: string) {
@@ -53,9 +67,11 @@ export default class Navigation extends React.Component {
               render={(res: string) => (
                 <div className='relative'>
                   <button
-                    className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
-                    onClick={() => this.loadPage("portfolio")}
+                    className='leading-none transition-opacity opacity-0 text-md 2xl:text-lg font-heading'
+                    data-navigation-item
                     onMouseEnter={(e) => {
+                      if (this.state.current == "portfolio") return;
+
                       const target = e.target as HTMLElement;
                       const line = target.nextSibling as HTMLElement;
 
@@ -63,17 +79,40 @@ export default class Navigation extends React.Component {
                       line.classList.remove("opacity-0");
                     }}
                     onMouseLeave={(e) => {
+                      if (this.state.current == "portfolio") return;
+
                       const target = e.target as HTMLElement;
                       const line = target.nextSibling as HTMLElement;
 
                       target.classList.remove("opacity-0");
                       line.classList.add("opacity-0");
                     }}
+                    onClick={(e) => {
+                      if (this.state.current == "portfolio") return;
+
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      this.state.current = "portfolio";
+                      this.loadPage("portfolio")
+
+                      this.navigationItems.forEach((item) => {
+                        const itemLine = item.nextSibling as HTMLElement;
+
+                        if (item != target) {
+                          item.classList.remove("opacity-0");
+                          itemLine.classList.add("opacity-0")
+                        }
+                      })
+
+                      target.classList.add("opacity-0");
+                      line.classList.remove("opacity-0");
+                    }}
                     type='button'
                   >
                     {res}
                   </button>
-                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity opacity-0 pointer-events-none'></div>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity pointer-events-none'></div>
                 </div>
               )}
             />
@@ -88,20 +127,45 @@ export default class Navigation extends React.Component {
                 <div className='relative'>
                   <button
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
-                    onClick={() => this.loadPage("contact")}
+                    data-navigation-item
                     onMouseEnter={(e) => {
+                      if (this.state.current == "contact") return;
+
                       const target = e.target as HTMLElement;
                       const line = target.nextSibling as HTMLElement;
 
                       target.classList.add("opacity-0");
-                      line.classList.remove("opacity-0")
+                      line.classList.remove("opacity-0");
                     }}
                     onMouseLeave={(e) => {
+                      if (this.state.current == "contact") return;
+
                       const target = e.target as HTMLElement;
                       const line = target.nextSibling as HTMLElement;
 
                       target.classList.remove("opacity-0");
                       line.classList.add("opacity-0")
+                    }}
+                    onClick={(e) => {
+                      if (this.state.current == "contact") return;
+
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      this.state.current = "contact";
+                      this.loadPage("contact")
+
+                      this.navigationItems.forEach((item) => {
+                        const itemLine = item.nextSibling as HTMLElement;
+
+                        if (item != target) {
+                          item.classList.remove("opacity-0");
+                          itemLine.classList.add("opacity-0")
+                        }
+                      })
+
+                      target.classList.add("opacity-0");
+                      line.classList.remove("opacity-0");
                     }}
                     type='button'
                   >
@@ -122,8 +186,10 @@ export default class Navigation extends React.Component {
                 <div className='relative'>
                   <button
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
-                    onClick={() => this.loadPage("about")}
+                    data-navigation-item
                     onMouseEnter={(e) => {
+                      if (this.state.current == "about") return;
+
                       const target = e.target as HTMLElement;
                       const line = target.nextSibling as HTMLElement;
 
@@ -131,11 +197,34 @@ export default class Navigation extends React.Component {
                       line.classList.remove("opacity-0")
                     }}
                     onMouseLeave={(e) => {
+                      if (this.state.current == "about") return;
+
                       const target = e.target as HTMLElement;
                       const line = target.nextSibling as HTMLElement;
 
                       target.classList.remove("opacity-0");
                       line.classList.add("opacity-0")
+                    }}
+                    onMouseDown={(e) => {
+                      if (this.state.current == "about") return;
+
+                      const target = e.target as HTMLElement;
+                      const line = target.nextSibling as HTMLElement;
+
+                      this.state.current = "about";
+                      this.loadPage("about")
+
+                      this.navigationItems.forEach((item) => {
+                        const itemLine = item.nextSibling as HTMLElement;
+
+                        if (item != target) {
+                          item.classList.remove("opacity-0");
+                          itemLine.classList.add("opacity-0")
+                        }
+                      })
+
+                      target.classList.add("opacity-0");
+                      line.classList.remove("opacity-0");
                     }}
                     type='button'
                   >
