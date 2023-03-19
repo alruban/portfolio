@@ -29,7 +29,8 @@ const Codebases = (data: JSONSchema4) => {
               key={index}
             >
               <a
-                className='w-4 h-4'
+                className='w-4 h-4 cursor-default'
+                href='#'
                 title={`${language}`}
               >
                 {
