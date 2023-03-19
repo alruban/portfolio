@@ -12,7 +12,7 @@ export default function Contact() {
         label="global.email"
         render={(res: string) => (
           <a
-            className='text-lg font-heading'
+            className='text-lg cursor-pointer font-heading'
             href={`mailto:${res}`}
           >
             {res}

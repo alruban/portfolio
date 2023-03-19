@@ -15,15 +15,6 @@ import customEvent from '../utils/customEvent';
 
 import projects from '../data/portfolio';
 
-type project = {
-  name?: string;
-  link?: string;
-  category?: string;
-  team?: string;
-  role?: string;
-  description?: string;
-}
-
 export default class Projects extends React.Component {
   isDesktop: boolean;
   currentProject: number;
@@ -158,6 +149,11 @@ export default class Projects extends React.Component {
 
     this.globalElements.overlay.classList.remove(...this.fadeOutClasses);
 
+    if (!this.isDesktop) {
+      this.stateElements.navigation.classList.add("!max-h-0");
+      el.classList.remove("border-t");
+    }
+
     customEvent("Project:Opened", {
       index: index
     });
@@ -227,6 +223,11 @@ export default class Projects extends React.Component {
 
     this.resetPreview(index);
     this.globalElements.overlay.classList.add(...this.fadeOutClasses);
+
+    if (!this.isDesktop) {
+      this.stateElements.navigation.classList.remove("!max-h-0");
+      el.classList.add("border-t");
+    }
 
     customEvent("Project:Closed", {
       index: index
@@ -298,7 +299,7 @@ export default class Projects extends React.Component {
       projects.map((project: JSONSchema4, index: number) => {
         return (
           <li
-            className={`absolute floating-${index} transition-all cursor-pointer h-[10%] w-[20%] lg:w-[14%]`}
+            className={`absolute transition-all cursor-pointer h-[10%] w-[20%] lg:w-[14%]`}
             data-project-item
             data-float='0.5'
 

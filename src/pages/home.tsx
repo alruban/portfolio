@@ -19,7 +19,7 @@ const Index = () => (
       </div>
 
       <div
-        className='absolute top-0 left-0 h-full transition-opacity opacity-0 pointer-events-none bg-overlay'
+        className='absolute top-0 left-0 h-full transition-opacity opacity-0 pointer-events-none max-lg:hidden bg-overlay'
         style={{
           width: 'calc(100% - 432px)'
         }}

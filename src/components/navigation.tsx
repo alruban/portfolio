@@ -37,11 +37,11 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div
-        className="m-5 transition-opacity"
+        className="overflow-hidden transition-all max-lg:max-h-20"
         data-state-navigation
       >
         <a
-          className="block font-medium leading-none w-fit"
+          className="block mx-5 mt-5 font-medium leading-none w-fit"
           href="/"
         >
           <p className='text-3xl font-normal leading-none sm:text-5xl lg:text-7xl 2xl:text-8xl font-heading'>
@@ -57,7 +57,7 @@ export default class Navigation extends React.Component {
             />
           </p>
         </a>
-        <ul className='pt-6'>
+        <ul className='pt-6 mx-5 mb-5'>
           <li
             className='pb-3 last:pb-0'
             key={1}

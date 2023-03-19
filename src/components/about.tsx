@@ -11,7 +11,7 @@ export default function About() {
         <Translate
           label="about.info"
           render={(res: string) => (
-            <p className='text-lg font-heading'>
+            <p className='text-lg cursor-default font-heading'>
               {res}
             </p>
           )}
