@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 /* Favicon Data */
-import manifestJSON from '/src/favicons/site.webmanifest';
-import browserconfigXML from '/src/favicons/browserconfig.xml';
+import manifestJSON from '../favicons/site.webmanifest';
+import browserconfigXML from '../favicons/browserconfig.xml';
 
 /* Favicons */
-import faviconICO from '/src/favicons/favicon.ico';
-import favicon16x from '/src/favicons/favicon-16x16.png';
-import favicon32x from '/src/favicons/favicon-32x32.png';
-import faviconMs70x from '/src/favicons/mstile-70x70.png';
-import faviconMs144x from '/src/favicons/mstile-144x144.png';
-import faviconMs150x from '/src/favicons/mstile-150x150.png';
-import faviconMs310x150 from '/src/favicons/mstile-310x150.png';
-import faviconMs310x from '/src/favicons/mstile-310x310.png';
-import faviconAppleIcon from '/src/favicons/apple-touch-icon.png';
-import faviconAndroid192x from '/src/favicons/android-chrome-192x192.png';
-import faviconAndroid512x from '/src/favicons/android-chrome-512x512.png';
+import faviconICO from '../favicons/favicon.ico';
+import favicon16x from '../favicons/favicon-16x16.png';
+import favicon32x from '../favicons/favicon-32x32.png';
+import faviconMs70x from '../favicons/mstile-70x70.png';
+import faviconMs144x from '../favicons/mstile-144x144.png';
+import faviconMs150x from '../favicons/mstile-150x150.png';
+import faviconMs310x150 from '../favicons/mstile-310x150.png';
+import faviconMs310x from '../favicons/mstile-310x310.png';
+import faviconAppleIcon from '../favicons/apple-touch-icon.png';
+import faviconAndroid192x from '../favicons/android-chrome-192x192.png';
+import faviconAndroid512x from '../favicons/android-chrome-512x512.png';
 
 
 const Layout = (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => (
