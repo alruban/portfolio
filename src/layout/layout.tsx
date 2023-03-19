@@ -25,6 +25,7 @@ const Layout = (props: { children: string | number | boolean | React.ReactElemen
     <Helmet>
       <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
       <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+      <meta charSet="UTF-8"/>
 
       <link rel="canonical" href="https://www.samuelclarke.dev"/>
 
