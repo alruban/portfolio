@@ -23,16 +23,13 @@ const core = {
       light: "#EEE"
     },
     colors: {
-      primary: "#597658",
-      background: "var(--background)",
+      primary: "var(--color-primary)",
+      background: "var(--color-background)",
       overlay: "rgba(27, 35, 27, 0.5)",
       border: {
         light: "#EEE"
       },
       black: "#090909",
-      dos: {
-        50: "var(--dos)"
-      },
       white: "#FFF",
       grey: {
         50: "#EEE",

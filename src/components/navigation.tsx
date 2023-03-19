@@ -112,7 +112,7 @@ export default class Navigation extends React.Component {
                   >
                     {res}
                   </button>
-                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity pointer-events-none'></div>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-primary transition-opacity pointer-events-none'></div>
                 </div>
               )}
             />
@@ -171,7 +171,7 @@ export default class Navigation extends React.Component {
                   >
                     {res}
                   </button>
-                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity opacity-0 pointer-events-none'></div>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-primary transition-opacity opacity-0 pointer-events-none'></div>
                 </div>
               )}
             />
@@ -230,7 +230,7 @@ export default class Navigation extends React.Component {
                   >
                     {res}
                   </button>
-                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-dos-50 transition-opacity opacity-0 pointer-events-none'></div>
+                  <div className='absolute w-[60px] h-[2px] top-[6px] bg-primary transition-opacity opacity-0 pointer-events-none'></div>
                 </div>
               )}
             />

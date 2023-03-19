@@ -39,7 +39,7 @@ export default function Profile(data: JSONSchema4) {
             <Close/>
           </button>
         </div>
-        <div className='py-3 border-solid border-y border-dos-50'>
+        <div className='py-3 border-solid border-y border-primary'>
           <div className='w-20 mx-auto my-6 h-19'>
             {
               data.name == 'Patchworks' ? <Patchworks/> :
@@ -54,7 +54,7 @@ export default function Profile(data: JSONSchema4) {
             }
           </div>
         </div>
-        <div className='py-3 border-b border-solid border-dos-50'>
+        <div className='py-3 border-b border-solid border-primary'>
           <div className='grid grid-cols-2'>
             <Translate
               label="profile.titles.category"
@@ -107,7 +107,7 @@ export default function Profile(data: JSONSchema4) {
             {data.description}
           </p>
         </div>
-        <div className='flex justify-between pt-6 pb-3 border-b border-solid border-dos-50'>
+        <div className='flex justify-between pt-6 pb-3 border-b border-solid border-primary'>
           <Translate
             label="profile.website"
             render={(res: string) => (

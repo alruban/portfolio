@@ -20,7 +20,7 @@ export default class Profiles extends React.Component {
       projects.map((project: JSONSchema4, index: number) => {
         return (
           <li
-            className='absolute w-full h-full transition-opacity border-t border-solid opacity-0 cursor-pointer pointer-events-none lg:border-t-0 lg:border-l border-dos-50 '
+            className='absolute w-full h-full transition-opacity border-t border-solid opacity-0 cursor-pointer pointer-events-none lg:border-t-0 lg:border-l border-primary '
             data-profile-item
             key={index}
           >
