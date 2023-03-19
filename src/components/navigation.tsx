@@ -68,6 +68,7 @@ export default class Navigation extends React.Component {
                 <div className='relative'>
                   <button
                     className='leading-none transition-opacity opacity-0 text-md 2xl:text-lg font-heading'
+                    aria-label={res}
                     data-navigation-item
                     onMouseEnter={(e) => {
                       if (this.state.current == "portfolio") return;
@@ -127,6 +128,7 @@ export default class Navigation extends React.Component {
                 <div className='relative'>
                   <button
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
+                    aria-label={res}
                     data-navigation-item
                     onMouseEnter={(e) => {
                       if (this.state.current == "contact") return;
@@ -186,6 +188,7 @@ export default class Navigation extends React.Component {
                 <div className='relative'>
                   <button
                     className='leading-none transition-opacity text-md 2xl:text-lg font-heading'
+                    aria-label={res}
                     data-navigation-item
                     onMouseEnter={(e) => {
                       if (this.state.current == "about") return;

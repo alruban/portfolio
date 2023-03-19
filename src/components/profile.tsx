@@ -34,6 +34,7 @@ export default function Profile(data: JSONSchema4) {
           <button
             className='absolute w-6 h-6 cursor-pointer top-4 right-4'
             type='button'
+            aria-label={`Open ${data.name}`}
             data-profile-reset
           >
             <Close/>
