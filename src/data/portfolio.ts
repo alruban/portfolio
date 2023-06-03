@@ -92,7 +92,7 @@ const projects = [
   },
   {
     name: "Cedar & Hyde",
-    link: "https://www.cedarandhyde.com",
+    link: "https://cedarandhyde.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=123739537495",
     year: "2022",
     category: "Shopify 2.0 Theme",
     team: "Mugo Agency x Hatch",
