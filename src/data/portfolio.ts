@@ -1,8 +1,8 @@
 const projects = [
   {
     name: "Patchworks",
-    link: "https://www.wearepatchworks.com",
-    year: "2023",
+    link: "https://patchworks-2-0.myshopify.com/",
+    year: "2023 (Still in Development)",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",
     role: "Developer",
@@ -74,28 +74,11 @@ const projects = [
     another.`
   },
   {
-    name: "Climpson & Sons",
-    link: "https://www.climpsonandsons.com",
-    year: "2022",
-    category: "Shopify 2.0 Theme",
-    team: "Mugo Agency",
-    role: "Developer",
-    codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
-    description: `
-      Climpson and Sons are an artisan coffee producer based in Hackney, East London.
-      Their new site was built from scratch as a Online Store 2.0 Shopify Theme. The
-      codebase was built with Webpack 5 and Node.JS - and we utilised HTML, CSS, Javascript,
-      and Liquid JS to the produce the site. One of the standouts for this build was the
-      subscription dashboard, which connects with ReCharge to allow users
-      to mix and match subscriptions from around their site on one page.
-    `
-  },
-  {
     name: "Cedar & Hyde",
     link: "https://cedarandhyde.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=123739537495",
     year: "2022",
     category: "Shopify 2.0 Theme",
-    team: "Mugo Agency x Hatch",
+    team: "Hatch",
     role: "Developer",
     codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
     description: `Cedar & Hyde was a custom built Online Store 2.0 Shopify Theme,
