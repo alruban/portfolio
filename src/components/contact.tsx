@@ -9,6 +9,17 @@ export default function Contact() {
     >
       <div className='absolute translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2'>
       <Translate
+        label="global.github"
+        render={(res: string) => (
+          <a
+            className='text-lg cursor-pointer font-heading'
+            href={`${res}`}
+          >
+            Github
+          </a>
+        )}
+      />
+      <Translate
         label="global.email"
         render={(res: string) => (
           <a
