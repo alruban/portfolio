@@ -7,7 +7,7 @@ export default function Contact() {
       className='absolute w-full h-full transition-opacity opacity-0 pointer-events-none'
       data-page="contact"
     >
-      <div className='absolute translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2'>
+      <div className='absolute text-center translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2'>
       <Translate
         label="global.github"
         render={(res: string) => (
@@ -15,7 +15,7 @@ export default function Contact() {
             className='block text-lg cursor-pointer font-heading'
             href={`${res}`}
           >
-            Github
+            github
           </a>
         )}
       />
