@@ -82,9 +82,11 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@analytics/google-analytics": "^1.0.7",
     "@babel/runtime": "^7.21.0",
     "@rubancorp/react-translate-json": "^1.0.1",
     "@svgr/webpack": "^6.5.1",
+    "analytics": "^0.8.9",
     "concurrently": "^7.6.0",
     "minimist": "^1.2.8",
     "postcss-inline-svg": "^5.0.0",

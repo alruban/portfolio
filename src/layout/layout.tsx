@@ -19,6 +19,20 @@ import faviconAppleIcon from '../favicons/apple-touch-icon.png';
 import faviconAndroid192x from '../favicons/android-chrome-192x192.png';
 import faviconAndroid512x from '../favicons/android-chrome-512x512.png';
 
+import Analytics from 'analytics'
+import googleAnalytics from '@analytics/google-analytics'
+
+const analytics = Analytics({
+  app: 'portfolio',
+  plugins: [
+    googleAnalytics({
+      measurementIds: ["G-N6L9JCEVL5"]
+    })
+  ]
+})
+
+/* Track a page view */
+analytics.page();
 
 const Layout = (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => (
   <HelmetProvider>
