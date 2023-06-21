@@ -1,7 +1,7 @@
 const projects = [
   {
     name: "Patchworks",
-    link: "https://patchworks-2-0.myshopify.com/",
+    link: "https://patchworks-2-0.myshopify.com/?_ab=0&_fd=0&_sc=1&key=a9295a4401cb20e90fd3335d6f7441f6e29faf11e9016767ef389efc1291f1e1&preview_theme_id=144651878717",
     year: "2023 (Still in Development)",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",

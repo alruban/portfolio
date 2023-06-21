@@ -12,7 +12,7 @@ export default function Contact() {
         label="global.github"
         render={(res: string) => (
           <a
-            className='text-lg cursor-pointer font-heading'
+            className='block text-lg cursor-pointer font-heading'
             href={`${res}`}
           >
             Github
@@ -23,7 +23,7 @@ export default function Contact() {
         label="global.email"
         render={(res: string) => (
           <a
-            className='text-lg cursor-pointer font-heading'
+            className='block text-lg cursor-pointer font-heading'
             href={`mailto:${res}`}
           >
             {res}
