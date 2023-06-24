@@ -25,7 +25,7 @@ const projects = [
   },
   {
     name: "Orb",
-    link: "https://ens.rest",
+    link: "https://ens-orb.netlify.app/",
     year: "2022",
     category: "React App",
     team: "Personal",
