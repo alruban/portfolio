@@ -113,7 +113,7 @@ export default function Profile(data: JSONSchema4) {
             label="profile.website"
             render={(res: string) => (
               <a
-                className='text-sm underline hover:no-underline underline-offset-4 font-heading'
+                className='text-sm underline select-none hover:no-underline underline-offset-4 font-heading'
                 href={data.link}
               >
                 {res}
