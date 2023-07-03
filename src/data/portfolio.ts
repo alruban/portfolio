@@ -1,8 +1,8 @@
 const projects = [
   {
     name: "Patchworks",
-    link: "https://patchworks-2-0.myshopify.com/?_ab=0&_fd=0&_sc=1&key=a9295a4401cb20e90fd3335d6f7441f6e29faf11e9016767ef389efc1291f1e1&preview_theme_id=144651878717",
-    year: "2023 (Still in Development)",
+    link: "https://wearepatchworks.com/",
+    year: "2023",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",
     role: "Developer",
@@ -72,18 +72,6 @@ const projects = [
     subscriptions - including the scope for discounts and gifts to be applied
     to the product page by swapping in variants on one product for variants on
     another.`
-  },
-  {
-    name: "Cedar & Hyde",
-    link: "https://cedarandhyde.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=123739537495",
-    year: "2022",
-    category: "Shopify 2.0 Theme",
-    team: "Hatch",
-    role: "Developer",
-    codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
-    description: `Cedar & Hyde was a custom built Online Store 2.0 Shopify Theme,
-    the site is structured using CSS grid's to main its pixel-perfect design, and built
-    using Node.JS and Webpack, utilising HTML, CSS, Javascript, and Liquid JS.`
   },
   {
     name: "Freetrain",
