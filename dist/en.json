@@ -1,7 +1,7 @@
 {
   "global": {
     "name": "Sam Clarke",
-    "role": "Designer and Developer",
+    "role": "Senior Front End Developer",
     "website": "https://www.samuelclarke.dev",
     "title": "Sam Clarke | Front End Developer",
     "subtitle": "Portfolio of Web Development",
@@ -27,6 +27,6 @@
   "about": {
     "email": "Email",
     "github": "Github",
-    "info": "Born 1995, Suffolk. A Front End Developer, with experience in HTML5, CSS3, ES6, Typescript, React, Liquid JS, Shopify, PostCSS, Webpack 5, Tailwind, and NodeJS."
+    "info": "Born 1995, Suffolk. A Front End Developer, with experience in HTML5, CSS3, ES6, Typescript, React, Liquid JS, Shopify, PostCSS, Webpack 5, Vite, Three.JS, Tailwind, and NodeJS."
   }
 }
