@@ -299,7 +299,7 @@ export default class Projects extends React.Component {
       projects.map((project: JSONSchema4, index: number) => {
         return (
           <li
-            className={`absolute transition-all cursor-pointer h-[10%] w-[20%]`}
+            className={`absolute transition-all cursor-pointer h-fit max-w-[30vw] md:max-w-[12.5vw] aspect-[16/9]`}
             data-project-item
             data-float='0.5'
 
