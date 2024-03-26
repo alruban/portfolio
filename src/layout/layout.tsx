@@ -17,7 +17,7 @@ import faviconMs310x150 from '../favicons/mstile-310x150.png';
 import faviconMs310x from '../favicons/mstile-310x310.png';
 import faviconAppleIcon from '../favicons/apple-touch-icon.png';
 import faviconAndroid192x from '../favicons/android-chrome-192x192.png';
-import faviconAndroid512x from '../favicons/android-chrome-512x512.png';
+import faviconAndroid384x from '../favicons/android-chrome-384x384.png';
 
 import Analytics from 'analytics'
 import googleAnalytics from '@analytics/google-analytics'
@@ -58,7 +58,7 @@ const Layout = (props: { children: string | number | boolean | React.ReactElemen
       <link rel="apple-touch-icon" href={ faviconAppleIcon }/>
 
       <link rel="icon" type="image/png" sizes="192x192" href={ faviconAndroid192x }/>
-      <link rel="icon" type="image/png" sizes="152x512" href={ faviconAndroid512x }/>
+      <link rel="icon" type="image/png" sizes="152x384" href={ faviconAndroid384x }/>
 
       <link rel="manifest" href={ manifestJSON }/>
 
