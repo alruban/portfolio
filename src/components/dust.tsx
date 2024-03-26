@@ -31,7 +31,7 @@ const dust: React.FC = () => {
 
     const particlesMaterial = new THREE.PointsMaterial({
       size: 0.01,
-      color: '#394c39',
+      color: '#b9b9b9',
     });
 
     const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);

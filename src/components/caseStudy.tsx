@@ -124,9 +124,13 @@ export default function caseStudy(data: JSONSchema4) {
           <Translate
             label="profile.titles.password"
             render={(res: string) => (
-              <p className='text-sm font-heading'>
-                {res}: {data.password}
-              </p>
+              data.password ?
+                <p className='text-sm font-heading'>
+                  {res}: {data.password}
+                </p>
+                :
+                <>
+                </>
             )}
           />
           </div>
