@@ -3,9 +3,9 @@ import { JSONSchema4 } from 'json-schema';
 
 import projects from '../data/portfolio';
 
-import Profile from './profile';
+import CaseStudy from './caseStudy';
 
-export default class Profiles extends React.Component {
+export default class CaseStudies extends React.Component {
   stateElements: any;
   portfolioElements: any;
 
@@ -24,7 +24,7 @@ export default class Profiles extends React.Component {
             data-profile-item
             key={index}
           >
-            {Profile(project)}
+            {CaseStudy(project)}
           </li>
         )
       })

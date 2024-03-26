@@ -73,7 +73,7 @@ const Layout = (props: { children: string | number | boolean | React.ReactElemen
       <meta name="msapplication-TileImage" content={ faviconMs310x }/>
     </Helmet>
 
-    <main className='h-full'>
+    <main className='w-full h-full'>
       {props.children}
     </main>
   </HelmetProvider>

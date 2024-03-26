@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Projects from './projects';
-import Profiles from './profiles';
+import CaseIcons from './caseIcons';
+import CaseStudies from './caseStudies';
 
 export default function Portfolio() {
   return (
@@ -13,14 +13,14 @@ export default function Portfolio() {
         className='absolute w-full h-full'
         data-project-list
       >
-        <Projects/>
+        <CaseIcons/>
       </ul>
 
       <ul
         className='absolute w-full h-full pointer-events-none lg:max-w-[432px] right-0'
         data-profile-list
       >
-        <Profiles/>
+        <CaseStudies/>
       </ul>
     </div>
   )

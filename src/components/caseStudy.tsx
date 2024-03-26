@@ -17,7 +17,7 @@ import Close from '../svgs/svg-icon-close.svg';
 /* Types */
 import { JSONSchema4 } from 'json-schema';
 
-export default function Profile(data: JSONSchema4) {
+export default function caseStudy(data: JSONSchema4) {
   return (
     <>
       <div

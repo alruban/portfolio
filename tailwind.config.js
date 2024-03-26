@@ -282,6 +282,9 @@ const core = {
         'span-22': 'span 22 / span 22',
         'span-23': 'span 23 / span 23',
         'span-24': 'span 24 / span 24',
+      },
+      zIndex: {
+        1: 1
       }
     }
   }
