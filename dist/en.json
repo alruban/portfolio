@@ -14,7 +14,8 @@
       "codebase": "Codebase",
       "team": "Team",
       "role": "Role",
-      "year": "Year"
+      "year": "Year",
+      "password": "Password"
     },
     "website": "View Website"
   },
