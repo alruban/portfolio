@@ -2,11 +2,11 @@ import React, { MouseEvent } from 'react';
 import { JSONSchema4 } from 'json-schema';
 
 /* SVGs */
+import BearBrick from '../svgs/svg-project-bear-brick.svg';
 import Patchworks from '../svgs/svg-project-patchworks.svg';
 import Freetrain from '../svgs/svg-project-freetrain.svg';
 import Climpsons from '../svgs/svg-project-climpsons.svg';
 import Hairgain from '../svgs/svg-project-hairgain.svg';
-import ALTMLK from '../svgs/svg-project-altmlk.svg';
 import Smiley from '../svgs/svg-project-smiley.svg';
 import Cedar from '../svgs/svg-project-cedar.svg';
 import Orb from '../svgs/svg-project-orb.svg';
@@ -299,7 +299,7 @@ export default class Projects extends React.Component {
       projects.map((project: JSONSchema4, index: number) => {
         return (
           <li
-            className={`absolute transition-all cursor-pointer h-[10%] w-[20%] lg:w-[14%]`}
+            className={`absolute transition-all cursor-pointer h-[10%] w-[20%]`}
             data-project-item
             data-float='0.5'
 
@@ -322,12 +322,12 @@ export default class Projects extends React.Component {
             key={index}
           >
             {
+              project.name == 'Bear Brick' ? <BearBrick /> :
               project.name == 'Patchworks' ? <Patchworks/> :
               project.name == 'Climpson & Sons' ? <Climpsons/> :
               project.name == 'Freetrain' ? <Freetrain/> :
               project.name == 'Cedar & Hyde' ? <Cedar/> :
               project.name == 'Hairgain' ? <Hairgain/> :
-              project.name == 'ALTMLK' ? <ALTMLK/> :
               project.name == 'Smiley' ? <Smiley/> :
               project.name == 'Orb' ? <Orb/> :
               false

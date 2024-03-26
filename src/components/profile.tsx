@@ -2,14 +2,12 @@ import React from 'react';
 import { Translate } from '@rubancorp/react-translate-json/react';
 import Codebases from './codebases';
 
-import Projects from './projects';
-
 /* SVGs */
+import BearBrick from '../svgs/svg-project-bear-brick.svg';
 import Patchworks from '../svgs/svg-project-patchworks.svg';
 import Freetrain from '../svgs/svg-project-freetrain.svg';
 import Climpsons from '../svgs/svg-project-climpsons.svg';
 import Hairgain from '../svgs/svg-project-hairgain.svg';
-import ALTMLK from '../svgs/svg-project-altmlk.svg';
 import Smiley from '../svgs/svg-project-smiley.svg';
 import Cedar from '../svgs/svg-project-cedar.svg';
 import Orb from '../svgs/svg-project-orb.svg';
@@ -43,12 +41,12 @@ export default function Profile(data: JSONSchema4) {
         <div className='py-3 border-solid border-y border-primary'>
           <div className='w-20 mx-auto my-6 h-19'>
             {
+              data.name == 'Bear Brick' ? <BearBrick/> :
               data.name == 'Patchworks' ? <Patchworks/> :
               data.name == 'Climpson & Sons' ? <Climpsons/> :
               data.name == 'Freetrain' ? <Freetrain/> :
               data.name == 'Cedar & Hyde' ? <Cedar/> :
               data.name == 'Hairgain' ? <Hairgain/> :
-              data.name == 'ALTMLK' ? <ALTMLK/> :
               data.name == 'Smiley' ? <Smiley/> :
               data.name == 'Orb' ? <Orb/> :
               false
@@ -109,6 +107,8 @@ export default function Profile(data: JSONSchema4) {
           </p>
         </div>
         <div className='flex justify-between pt-6 pb-3 border-b border-solid border-primary'>
+
+          <div className='flex gap-y-2 gap-x-4 max-md:flex-col'>
           <Translate
             label="profile.website"
             render={(res: string) => (
@@ -120,6 +120,16 @@ export default function Profile(data: JSONSchema4) {
               </a>
             )}
           />
+
+          <Translate
+            label="profile.titles.password"
+            render={(res: string) => (
+              <p className='text-sm font-heading'>
+                {res}: {data.password}
+              </p>
+            )}
+          />
+          </div>
 
           <div>
             {Codebases(data)}

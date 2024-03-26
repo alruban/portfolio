@@ -41,7 +41,7 @@ export default class Navigation extends React.Component {
         data-state-navigation
       >
         <a
-          className="block mx-5 mt-5 font-medium leading-none w-fit"
+          className="block mx-5 mt-5 font-medium leading-none select-none w-fit"
           href="/"
         >
           <p className='text-3xl font-normal leading-none sm:text-5xl lg:text-7xl 2xl:text-8xl font-heading'>

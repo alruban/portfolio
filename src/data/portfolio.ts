@@ -1,19 +1,34 @@
 const projects = [
   {
+    name: "Bear Brick",
+    link: "https://store.bearbrick.audio/",
+    password: '',
+    year: "2023",
+    category: "Shopify 2.0 Theme",
+    team: "Make Time to Design",
+    role: "Developer",
+    codebase: "HTML,CSS,Sass,Typescript,Liquid JS,Tailwind",
+    description: `Bear Brick was rebuilt as a Online
+    Store 2.0 Shopify Theme - built on Node.JS and Vite, and
+    utilising HTML, CSS, Sass, Typescript, and Liquid JS.`
+  },
+  {
     name: "Patchworks",
     link: "https://wearepatchworks.com/",
+    password: '',
     year: "2023",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",
     role: "Developer",
     codebase: "HTML,CSS,Sass,Typescript,Liquid JS,Tailwind",
-    description: `Patchworks was rebuilt from scratch as a Online
+    description: `Patchworks was built from scratch as a Online
     Store 2.0 Shopify Theme - built on Node.JS and Webpack, and
     utilising HTML, CSS, Sass, Typescript, and Liquid JS.`
   },
   {
     name: "Smiley",
     link: "https://www.smiley.com",
+    password: '',
     year: "2022",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",
@@ -26,6 +41,7 @@ const projects = [
   {
     name: "Orb",
     link: "https://ens-orb.netlify.app/",
+    password: '',
     year: "2022",
     category: "React App",
     team: "Personal",
@@ -43,22 +59,21 @@ const projects = [
     and more.`
   },
   {
-    name: "ALTMLK",
-    link: "https://www.alt-mlk.com",
+    name: "Cedar & Hyde",
+    link: "https://cedarhydetest.myshopify.com/",
+    password: 'cedarandhyde',
     year: "2023",
     category: "Shopify 2.0 Theme",
-    team: "Make Time to Design",
+    team: "H x M",
     role: "Developer",
     codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
-    description: `ALTMLK is a placeholder site that required a fast turnaround,
-    it was completed within two days, it's a very basic from scratch theme
-    that's purpose is to promote an upcoming product. The site was built
-    with Webpack and Node.JS, and utilises HTML, CSS, Javascript, and
-    Liquid JS.`
+    description: `Cedar & Hyde is a custom 2.0 theme that was built from scratch. The site was built
+    with Webpack and Node.JS, and utilises HTML, CSS, Javascript, and Liquid JS.`
   },
   {
     name: "Hairgain",
     link: "https://www.hairgainnow.com",
+    password: '',
     year: "2022",
     category: "Shopify 2.0 Theme",
     team: "Mugo Agency",
@@ -76,6 +91,7 @@ const projects = [
   {
     name: "Freetrain",
     link: "https://www.freetrain.com/",
+    password: '',
     year: "2021",
     category: "Shopify 2.0 Theme",
     team: "Mugo Agency",
