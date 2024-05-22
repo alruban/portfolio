@@ -5,7 +5,6 @@ import Sidebar from '../components/sidebar';
 import Portfolio from '../components/portfolio';
 import About from '../components/about';
 import Contact from '../components/contact';
-import Dust from '../components/dust';
 
 const Index = () => (
   <Layout>
@@ -18,8 +17,6 @@ const Index = () => (
           <Contact/>
           <About/>
         </div>
-
-        <Dust/>
 
         <div
           className='absolute top-0 left-0 h-full transition-opacity opacity-0 pointer-events-none max-lg:hidden bg-overlay'
