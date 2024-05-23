@@ -71,6 +71,17 @@ const Layout = (props: { children: string | number | boolean | React.ReactElemen
       <meta name="msapplication-TileImage" content={ faviconMs150x }/>
       <meta name="msapplication-TileImage" content={ faviconMs310x150 }/>
       <meta name="msapplication-TileImage" content={ faviconMs310x }/>
+
+      <link rel="preload" href="/src/fonts/Recoleta-Regular.woff" as="font" type="font/woff"/>
+      <link rel="preload" href="/src/fonts/Recoleta-Regular.woff2" as="font" type="font/woff2"/>
+      <link rel="preload" href="/src/fonts/Recoleta-Medium.woff" as="font" type="font/woff"/>
+      <link rel="preload" href="/src/fonts/Recoleta-Medium.woff2" as="font" type="font/woff2"/>
+      <link rel="preload" href="/src/fonts/Graphik-Regular-Web.woff" as="font" type="font/woff"/>
+      <link rel="preload" href="/src/fonts/Graphik-Regular-Web.woff2" as="font" type="font/woff2"/>
+      <link rel="preload" href="/src/fonts/Graphik-Medium-Web.woff" as="font" type="font/woff"/>
+      <link rel="preload" href="/src/fonts/Graphik-Medium-Web.woff2" as="font" type="font/woff2"/>
+      <link rel="preload" href="/src/fonts/Graphik-Semibold-Web.woff" as="font" type="font/woff"/>
+      <link rel="preload" href="/src/fonts/Graphik-Semibold-Web.woff2" as="font" type="font/woff2"/>
     </Helmet>
 
     <main className='w-full h-full'>

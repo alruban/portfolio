@@ -8,7 +8,7 @@ import Contact from '../components/contact';
 
 const Index = () => (
   <Layout>
-    <div className='w-full h-full p-6'>
+    <div className='w-full h-full p-6 animate-fade-in'>
       <div className='relative flex flex-col items-center w-full h-full border border-solid lg:flex-row border-primary'>
         <Sidebar/>
 
