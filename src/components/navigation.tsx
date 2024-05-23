@@ -40,10 +40,7 @@ export default class Navigation extends React.Component {
         className="overflow-hidden transition-all max-lg:max-h-20"
         data-state-navigation
       >
-        <a
-          className="block mx-5 mt-5 font-medium leading-none select-none w-fit"
-          href="/"
-        >
+        <div className="block mx-5 mt-5 font-medium leading-none select-none w-fit">
           <p className='text-3xl font-normal leading-none sm:text-5xl lg:text-7xl 2xl:text-8xl font-heading'>
           <Translate
             label="global.name"
@@ -56,7 +53,7 @@ export default class Navigation extends React.Component {
               render={(res: string) => res}
             />
           </p>
-        </a>
+        </div>
         <ul className='pt-6 mx-5 mb-5'>
           <li
             className='pb-3 last:pb-0'
