@@ -21,7 +21,7 @@ export default function caseStudy(data: JSONSchema4) {
   return (
     <>
       <div
-        className="absolute w-full h-full px-4 pb-4 overflow-scroll bg-background scrollbar-hide"
+        className="absolute w-full h-full px-4 pb-4 overflow-scroll bg-background scrollbar-hide select-none"
         data-profile-view
       >
         <div className="flex justify-between pt-4 pb-1">
