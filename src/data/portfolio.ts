@@ -2,7 +2,7 @@ const projects = [
   {
     name: "Bear Brick",
     link: "https://store.bearbrick.audio/",
-    password: '',
+    password: "",
     year: "2023",
     category: "Shopify 2.0 Theme",
     team: "Make Time to Design",
@@ -10,12 +10,12 @@ const projects = [
     codebase: "HTML,CSS,Sass,Typescript,Liquid JS,Tailwind",
     description: `Bear Brick was rebuilt as a Online
     Store 2.0 Shopify Theme - built on Node.JS and Vite, and
-    utilising HTML, CSS, Sass, Typescript, and Liquid JS.`
+    utilising HTML, CSS, Sass, Typescript, and Liquid JS.`,
   },
   {
     name: "Patchworks",
     link: "https://wearepatchworks.com/",
-    password: '',
+    password: "",
     year: "2023",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",
@@ -23,12 +23,12 @@ const projects = [
     codebase: "HTML,CSS,Sass,Typescript,Liquid JS,Tailwind",
     description: `Patchworks was built from scratch as a Online
     Store 2.0 Shopify Theme - built on Node.JS and Webpack, and
-    utilising HTML, CSS, Sass, Typescript, and Liquid JS.`
+    utilising HTML, CSS, Sass, Typescript, and Liquid JS.`,
   },
   {
     name: "Smiley",
     link: "https://www.smiley.com",
-    password: '',
+    password: "",
     year: "2022",
     category: "Shopify 2.0 Theme",
     team: "Juno Ecommerce",
@@ -36,12 +36,12 @@ const projects = [
     codebase: "HTML,CSS,Sass,Javascript,Liquid JS",
     description: `Smiley was a custom built Online Store 2.0 Shopify Theme,
     it was built using Node.JS and Webpack, and utilises HTML, CSS, Typescript,
-    and Liquid JS.`
+    and Liquid JS.`,
   },
   {
     name: "Orb",
     link: "https://ens-orb.netlify.app/",
-    password: '',
+    password: "",
     year: "2022",
     category: "React App",
     team: "Personal",
@@ -56,42 +56,37 @@ const projects = [
     one of the first that allowed users to bulk search multiple URLs at once.
     Originally, you had to search .ens addresses one by one. Of course now,
     that's different - there's loads of sites that accomplish what Orb does,
-    and more.`
+    and more.`,
   },
   {
     name: "Cedar & Hyde",
     link: "https://cedarhydetest.myshopify.com/",
-    password: 'cedarandhyde',
+    password: "cedarandhyde",
     year: "2023",
     category: "Shopify 2.0 Theme",
     team: "H x M",
     role: "Developer",
     codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
     description: `Cedar & Hyde is a custom 2.0 theme that was built from scratch. The site was built
-    with Webpack and Node.JS, and utilises HTML, CSS, Javascript, and Liquid JS.`
+    with Webpack and Node.JS, and utilises HTML, CSS, Javascript, and Liquid JS.`,
   },
   {
-    name: "Hairgain",
-    link: "https://www.hairgainnow.com",
-    password: '',
-    year: "2022",
-    category: "Shopify 2.0 Theme",
-    team: "Mugo Agency",
+    name: "Dropdeck",
+    link: "https://apps.shopify.com/dropdeck",
+    password: "",
+    year: "2025",
+    category: "Shopify App",
+    team: "Solo",
     role: "Developer",
-    codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
-    description: `Hairgain was a longtime client for a previous agency I worked for,
-    we remade their website from scratch as a Online Store 2.0 theme, the codebase
-    was built on Webpack 5 and Node.JS - utilising HTML, CSS, Javascript, and
-    Liquid JS. Hairgain required extensive ReCharge subscription utility work
-    to allow them to fully customise their user experience when purchasing
-    subscriptions - including the scope for discounts and gifts to be applied
-    to the product page by swapping in variants on one product for variants on
-    another.`
+    codebase: "HTML,CSS,Remix,Typescript,Liquid JS,Vite",
+    description: `Dropdeck is a preorder application for Shopify that I built that utilises Shopify's
+    native selling plans to allow merchants to create release dates for their products and enforce unit
+    restrictions to prevent scalping. It was built using Remix, Vite, HTML, CSS, Liquid JS, and Typescript`,
   },
   {
     name: "Freetrain",
     link: "https://www.freetrain.com/",
-    password: '',
+    password: "",
     year: "2021",
     category: "Shopify 2.0 Theme",
     team: "Mugo Agency",
@@ -99,8 +94,8 @@ const projects = [
     codebase: "HTML,CSS,PostCSS,Javascript,Liquid JS",
     description: `Freetrain was a custom built Online Store 2.0 Shopify Theme project,
     it was built using Node.JS and Webpack, and it utilises HTML, CSS, Javascript,
-    and Liquid JS.`
-  }
+    and Liquid JS.`,
+  },
 ];
 
 export default projects;
