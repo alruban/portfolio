@@ -173,12 +173,14 @@ src/
   hooks/
     useStackNavigation.ts  # scroll-snap + ←/→ + swipe
     useIframeReady.ts      # load-or-fallback timeout
+    useHashPlate.ts        # syncs current plate ↔ location.hash (#/03)
   data/
     plates.ts
     screenshots/           # fallback PNGs co-located with data
   styles/
-    tokens.css             # palette CSS vars + type ramp
-    base.css               # resets, body, fonts
+    tokens.css             # palette CSS vars + type ramp (global)
+    base.css               # resets, body, fonts (global)
+  # plus co-located *.module.css next to each component
   fonts/                   # current woffs (or replacements)
 ```
 
@@ -194,7 +196,7 @@ Current stack is React 18, Webpack 5, Tailwind 3, PostCSS+Sass+Babel, three.js (
 | Compiler | Babel 7 + custom presets | esbuild (via Vite) |
 | Framework | React 18 | **React 19** |
 | Types | TypeScript 4.9 | **TypeScript 5.x** |
-| Styling | Tailwind 3 + PostCSS + Sass | **Tailwind 4** (CSS-vars-native, drop Sass + most PostCSS plugins) |
+| Styling | Tailwind 3 + PostCSS + Sass | **Vanilla CSS Modules + CSS custom properties** (drop Tailwind, Sass, PostCSS plugin chain) |
 | Routing | react-router-dom 6 | *(removed — single page)* |
 | Head | react-helmet-async + react-head | *(replaced by React 19 native metadata)* |
 | i18n | @rubancorp/react-translate-json | *(removed — single language)* |
@@ -203,7 +205,9 @@ Current stack is React 18, Webpack 5, Tailwind 3, PostCSS+Sass+Babel, three.js (
 | Format | Prettier | Prettier 3 |
 | Analytics | `analytics` + GA UA plugin | direct GA4 (gtag) — simpler |
 
-Drop also: `prop-types`, `minimist`, `concurrently`, every `@babel/*`, `webpack-*`, `*-loader`, `mini-css-extract-plugin`, `lightningcss` (Vite handles), `cssnano`, `stylelint*`.
+Drop also: `tailwindcss`, `autoprefixer`, every `postcss-*`, `prop-types`, `minimist`, `concurrently`, every `@babel/*`, `webpack-*`, `*-loader`, `mini-css-extract-plugin`, `lightningcss` (Vite handles), `cssnano`, `stylelint*`, `sass`, `sass-loader`.
+
+**Styling approach:** Each component gets a co-located `*.module.css`. CSS variables for the palette + type ramp live in a single global `src/styles/tokens.css`; resets and base typography in `src/styles/base.css`. No utility classes — write CSS deliberately.
 
 `pnpm-lock.yaml` regenerated. Node pinned via `.nvmrc` to current LTS.
 
@@ -236,7 +240,7 @@ The diorama survives, simplified:
 | Some sites block iframe embedding (X-Frame-Options / CSP) | Per-project `previewMode` + `useIframeReady` fallback to screenshot. Pre-test each site during build of `plates.ts`. |
 | Live sites change after launch (broken URLs, redesigns) | `liveUrl` is data; screenshots can be regenerated. No CMS dependency. |
 | Project order matters for first impression | Curate during data authoring; recommend lead with Patchworks or Bear Brick (most visually striking + Shopify 2.0 credible). |
-| Single-page = harder to share a specific project | Add deep-link hash routing: `#/03` selects plate 03 on load. (Light addition, no router needed.) |
+| Single-page = harder to share a specific project | **Included:** deep-link hash routing — `#/03` selects plate 03 on load and updates as the user navigates. No router lib; a small `useHashPlate` hook reads/writes `location.hash`. |
 | Existing site is live and gets traffic | Build on a feature branch, deploy preview before cut-over. |
 
 ## 15. Build phases (suggested)
